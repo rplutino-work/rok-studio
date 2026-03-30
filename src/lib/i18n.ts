@@ -17,30 +17,32 @@ export const translations = {
       ctaSecondary: "Ver proyectos",
     },
     services: {
-      label: "Servicios",
-      title: "Lo que hacemos",
+      label: "Lo que hacemos",
+      title: "Tecnología que trabaja para vos.",
       subtitle:
-        "Combinamos estrategia, diseño y tecnología para crear soluciones que generan resultados reales.",
+        "No vendemos humo. Diseñamos, construimos y conectamos las piezas digitales que tu negocio necesita para crecer de verdad.",
+      cta: "¿Tenés un proyecto en mente?",
+      ctaButton: "Hablemos",
       items: [
         {
-          title: "Ecommerce",
+          title: "Tu tienda, sin límites",
           description:
-            "Tiendas online de alto rendimiento. Diseño, desarrollo e integración con pasarelas de pago, logística y ERPs.",
+            "Armamos tiendas online que venden. Shopify, headless o 100% a medida — con pasarelas de pago, logística y stock resueltos desde el día uno.",
         },
         {
-          title: "Desarrollo a medida",
+          title: "Sistemas que resuelven",
           description:
-            "Sistemas, plataformas y aplicaciones web construidas desde cero para resolver las necesidades específicas de tu negocio.",
+            "Si tu negocio tiene un proceso que se repite, lo digitalizamos. Plataformas, paneles, apps — construidos desde cero para cómo trabajás vos.",
         },
         {
-          title: "Integraciones",
+          title: "Todo conectado",
           description:
-            "Conectamos tus sistemas. APIs, middlewares y flujos de datos entre plataformas para que todo funcione en sintonía.",
+            "Que tu tienda hable con tu ERP, que tu CRM se actualice solo, que los datos fluyan. Conectamos tus sistemas para que dejes de hacer todo a mano.",
         },
         {
-          title: "Automatización con IA",
+          title: "Inteligencia que escala",
           description:
-            "Implementamos inteligencia artificial para automatizar procesos, mejorar la toma de decisiones y escalar operaciones.",
+            "Bots que responden, workflows que se disparan solos, decisiones basadas en datos. Implementamos IA donde más impacta: en lo repetitivo.",
         },
       ],
     },
@@ -166,30 +168,32 @@ export const translations = {
       ctaSecondary: "View projects",
     },
     services: {
-      label: "Services",
-      title: "What we do",
+      label: "What we do",
+      title: "Technology that works for you.",
       subtitle:
-        "We combine strategy, design and technology to create solutions that drive real results.",
+        "No fluff. We design, build and connect the digital pieces your business needs to actually grow.",
+      cta: "Got a project in mind?",
+      ctaButton: "Let's talk",
       items: [
         {
-          title: "Ecommerce",
+          title: "Your store, no limits",
           description:
-            "High-performance online stores. Design, development and integration with payment gateways, logistics and ERPs.",
+            "We build online stores that sell. Shopify, headless or fully custom — with payments, logistics and stock sorted from day one.",
         },
         {
-          title: "Custom development",
+          title: "Systems that solve",
           description:
-            "Systems, platforms and web applications built from scratch to solve your business's specific needs.",
+            "If your business has a process that repeats, we digitize it. Platforms, dashboards, apps — built from scratch for the way you work.",
         },
         {
-          title: "Integrations",
+          title: "Everything connected",
           description:
-            "We connect your systems. APIs, middlewares and data flows between platforms so everything works in sync.",
+            "Your store talks to your ERP, your CRM updates itself, data flows. We connect your systems so you stop doing everything by hand.",
         },
         {
-          title: "AI Automation",
+          title: "Intelligence that scales",
           description:
-            "We implement artificial intelligence to automate processes, improve decision-making and scale operations.",
+            "Bots that respond, workflows that fire on their own, data-driven decisions. We implement AI where it matters most: the repetitive stuff.",
         },
       ],
     },
@@ -315,30 +319,32 @@ export const translations = {
       ctaSecondary: "Ver projetos",
     },
     services: {
-      label: "Serviços",
-      title: "O que fazemos",
+      label: "O que fazemos",
+      title: "Tecnologia que trabalha pra você.",
       subtitle:
-        "Combinamos estratégia, design e tecnologia para criar soluções que geram resultados reais.",
+        "Sem enrolação. Desenhamos, construímos e conectamos as peças digitais que seu negócio precisa pra crescer de verdade.",
+      cta: "Tem um projeto em mente?",
+      ctaButton: "Vamos conversar",
       items: [
         {
-          title: "Ecommerce",
+          title: "Sua loja, sem limites",
           description:
-            "Lojas online de alto desempenho. Design, desenvolvimento e integração com gateways de pagamento, logística e ERPs.",
+            "Criamos lojas online que vendem. Shopify, headless ou 100% sob medida — com pagamentos, logística e estoque resolvidos desde o primeiro dia.",
         },
         {
-          title: "Desenvolvimento sob medida",
+          title: "Sistemas que resolvem",
           description:
-            "Sistemas, plataformas e aplicações web construídas do zero para resolver as necessidades específicas do seu negócio.",
+            "Se seu negócio tem um processo que se repete, a gente digitaliza. Plataformas, painéis, apps — construídos do zero pro jeito que você trabalha.",
         },
         {
-          title: "Integrações",
+          title: "Tudo conectado",
           description:
-            "Conectamos seus sistemas. APIs, middlewares e fluxos de dados entre plataformas para que tudo funcione em sintonia.",
+            "Sua loja conversa com seu ERP, seu CRM se atualiza sozinho, os dados fluem. Conectamos seus sistemas pra você parar de fazer tudo na mão.",
         },
         {
-          title: "Automação com IA",
+          title: "Inteligência que escala",
           description:
-            "Implementamos inteligência artificial para automatizar processos, melhorar a tomada de decisões e escalar operações.",
+            "Bots que respondem, workflows que disparam sozinhos, decisões baseadas em dados. Implementamos IA onde mais impacta: no repetitivo.",
         },
       ],
     },
