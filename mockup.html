@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ROK Studio — Device Mockup</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f5f4f0;
+    font-family: 'Space Grotesk', sans-serif;
+    padding: 60px 20px;
+  }
+
+  .scene {
+    position: relative;
+    width: 780px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* ── LAPTOP ── */
+  .laptop {
+    position: relative;
+    width: 720px;
+  }
+
+  .laptop-screen {
+    position: relative;
+    background: #1a1a1a;
+    border-radius: 16px 16px 0 0;
+    padding: 14px 14px 0 14px;
+    box-shadow: 0 -2px 40px rgba(0,0,0,0.08);
+  }
+
+  .laptop-screen::before {
+    content: '';
+    position: absolute;
+    top: 7px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #333;
+  }
+
+  .laptop-viewport {
+    width: 100%;
+    aspect-ratio: 16/10;
+    border-radius: 4px 4px 0 0;
+    overflow: hidden;
+    position: relative;
+    background: #05070f;
+  }
+
+  .laptop-viewport iframe {
+    width: 1440px;
+    height: 900px;
+    border: none;
+    transform: scale(0.48);
+    transform-origin: top left;
+  }
+
+  .laptop-base {
+    width: 100%;
+    height: 18px;
+    background: linear-gradient(to bottom, #c0c0c0, #d4d4d4);
+    border-radius: 0 0 2px 2px;
+    position: relative;
+  }
+
+  .laptop-base::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 120px;
+    height: 5px;
+    background: #b0b0b0;
+    border-radius: 0 0 6px 6px;
+  }
+
+  .laptop-shadow {
+    width: 110%;
+    height: 12px;
+    margin-left: -5%;
+    background: linear-gradient(to bottom, #d0d0cc, transparent);
+    border-radius: 0 0 50% 50%;
+  }
+
+  /* ── PHONE ── */
+  .phone {
+    position: absolute;
+    bottom: 50px;
+    left: -30px;
+    width: 200px;
+    z-index: 10;
+    filter: drop-shadow(0 20px 40px rgba(0,0,0,0.15));
+  }
+
+  .phone-frame {
+    background: #111;
+    border-radius: 28px;
+    padding: 10px;
+    position: relative;
+  }
+
+  .phone-frame::before {
+    content: '';
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 20px;
+    background: #111;
+    border-radius: 0 0 14px 14px;
+    z-index: 5;
+  }
+
+  .phone-viewport {
+    width: 100%;
+    aspect-ratio: 9/19.5;
+    border-radius: 20px;
+    overflow: hidden;
+    position: relative;
+    background: #05070f;
+  }
+
+  .phone-viewport iframe {
+    width: 390px;
+    height: 844px;
+    border: none;
+    transform: scale(0.462);
+    transform-origin: top left;
+  }
+
+  /* ── URL BAR ── */
+  .url-bar {
+    margin-top: 40px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: white;
+    padding: 14px 24px;
+    border-radius: 40px;
+    box-shadow: 0 2px 20px rgba(0,0,0,0.06);
+    min-width: 320px;
+  }
+
+  .url-bar span {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 16px;
+    color: #333;
+    letter-spacing: -0.01em;
+  }
+
+  .url-bar svg {
+    width: 20px;
+    height: 20px;
+    color: #999;
+    margin-left: auto;
+  }
+
+  /* ── FALLBACK SITE RENDER (if iframes don't load) ── */
+  .site-preview {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+  }
+
+  .site-preview-laptop {
+    background: #05070f;
+    color: #eee;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 40px;
+    width: 100%;
+    height: 100%;
+    position: relative;
+  }
+
+  /* Starfield dots */
+  .site-preview-laptop::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      radial-gradient(1px 1px at 10% 20%, rgba(255,255,255,0.3), transparent),
+      radial-gradient(1px 1px at 30% 50%, rgba(255,255,255,0.2), transparent),
+      radial-gradient(1px 1px at 50% 10%, rgba(255,255,255,0.15), transparent),
+      radial-gradient(1px 1px at 70% 40%, rgba(255,255,255,0.25), transparent),
+      radial-gradient(1px 1px at 90% 70%, rgba(255,255,255,0.2), transparent),
+      radial-gradient(1px 1px at 15% 80%, rgba(255,255,255,0.15), transparent),
+      radial-gradient(1px 1px at 60% 65%, rgba(255,255,255,0.2), transparent),
+      radial-gradient(1px 1px at 80% 15%, rgba(255,255,255,0.3), transparent),
+      radial-gradient(1px 1px at 25% 35%, rgba(255,255,255,0.15), transparent),
+      radial-gradient(1px 1px at 45% 85%, rgba(255,255,255,0.2), transparent),
+      radial-gradient(1.5px 1.5px at 5% 55%, rgba(255,255,255,0.2), transparent),
+      radial-gradient(1.5px 1.5px at 85% 45%, rgba(255,255,255,0.15), transparent),
+      radial-gradient(1px 1px at 35% 15%, rgba(255,255,255,0.25), transparent),
+      radial-gradient(1px 1px at 75% 85%, rgba(255,255,255,0.2), transparent),
+      radial-gradient(1px 1px at 55% 35%, rgba(255,255,255,0.15), transparent);
+  }
+
+  /* Grid */
+  .site-preview-laptop::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    opacity: 0.03;
+    background-image:
+      linear-gradient(rgba(245,77,35,0.4) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(245,77,35,0.4) 1px, transparent 1px);
+    background-size: 50px 50px;
+  }
+
+  /* Radial glow */
+  .glow-orb {
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(245,77,35,0.08) 0%, transparent 60%);
+    pointer-events: none;
+  }
+
+  .preview-badge {
+    font-family: 'Space Mono', monospace;
+    font-size: 7px;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: #f54d23;
+    border: 1px solid rgba(42,45,62,1);
+    padding: 5px 10px;
+    margin-bottom: 18px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .preview-headline {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 28px;
+    font-weight: 700;
+    line-height: 0.92;
+    letter-spacing: -0.04em;
+    margin-bottom: 14px;
+    position: relative;
+    z-index: 1;
+    max-width: 420px;
+  }
+
+  .preview-sub {
+    font-size: 10px;
+    color: #888899;
+    max-width: 300px;
+    line-height: 1.5;
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .preview-ctas {
+    display: flex;
+    gap: 10px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .preview-btn-primary {
+    font-family: 'Space Mono', monospace;
+    font-size: 7px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    background: #f54d23;
+    color: white;
+    padding: 8px 18px;
+    border: none;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .preview-btn-secondary {
+    font-family: 'Space Mono', monospace;
+    font-size: 7px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    background: transparent;
+    color: #888899;
+    padding: 8px 18px;
+    border: 1px solid rgba(42,45,62,1);
+  }
+
+  .preview-scroll {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    z-index: 1;
+  }
+
+  .preview-scroll span {
+    font-family: 'Space Mono', monospace;
+    font-size: 6px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: #888899;
+  }
+
+  .preview-scroll-line {
+    width: 1px;
+    height: 20px;
+    background: linear-gradient(to bottom, rgba(245,77,35,0.6), transparent);
+  }
+
+  /* ── PHONE PREVIEW ── */
+  .site-preview-phone {
+    background: #05070f;
+    color: #eee;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 30px 16px;
+    width: 100%;
+    height: 100%;
+    position: relative;
+  }
+
+  .site-preview-phone::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      radial-gradient(1px 1px at 15% 25%, rgba(255,255,255,0.3), transparent),
+      radial-gradient(1px 1px at 40% 60%, rgba(255,255,255,0.2), transparent),
+      radial-gradient(1px 1px at 70% 20%, rgba(255,255,255,0.15), transparent),
+      radial-gradient(1px 1px at 85% 75%, rgba(255,255,255,0.25), transparent),
+      radial-gradient(1px 1px at 25% 80%, rgba(255,255,255,0.2), transparent),
+      radial-gradient(1px 1px at 55% 40%, rgba(255,255,255,0.15), transparent);
+  }
+
+  .site-preview-phone::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    opacity: 0.03;
+    background-image:
+      linear-gradient(rgba(245,77,35,0.4) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(245,77,35,0.4) 1px, transparent 1px);
+    background-size: 35px 35px;
+  }
+
+  .phone-glow {
+    position: absolute;
+    top: 35%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(245,77,35,0.1) 0%, transparent 60%);
+  }
+
+  .phone-badge {
+    font-family: 'Space Mono', monospace;
+    font-size: 5px;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: #f54d23;
+    border: 1px solid rgba(42,45,62,1);
+    padding: 3px 7px;
+    margin-bottom: 12px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .phone-headline {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 0.95;
+    letter-spacing: -0.03em;
+    margin-bottom: 10px;
+    position: relative;
+    z-index: 1;
+    max-width: 160px;
+  }
+
+  .phone-sub {
+    font-size: 6px;
+    color: #888899;
+    max-width: 140px;
+    line-height: 1.5;
+    margin-bottom: 14px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .phone-btn {
+    font-family: 'Space Mono', monospace;
+    font-size: 5px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    background: #f54d23;
+    color: white;
+    padding: 5px 12px;
+    border: none;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* ── NAV PREVIEW (laptop) ── */
+  .preview-nav {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 24px;
+    z-index: 2;
+  }
+
+  .preview-nav-logo {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    color: #eee;
+    opacity: 0.9;
+  }
+
+  .preview-nav-links {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .preview-nav-links span {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 7px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #888899;
+  }
+
+  .preview-nav-cta {
+    font-family: 'Space Mono', monospace;
+    font-size: 7px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    background: #f54d23;
+    color: white;
+    padding: 5px 12px;
+    border: none;
+    margin-left: 4px;
+  }
+</style>
+</head>
+<body>
+
+<div class="scene">
+  <!-- LAPTOP -->
+  <div class="laptop">
+    <div class="laptop-screen">
+      <div class="laptop-viewport">
+        <div class="site-preview site-preview-laptop">
+          <!-- Nav -->
+          <div class="preview-nav">
+            <div class="preview-nav-logo">ROK</div>
+            <div class="preview-nav-links">
+              <span>Servicios</span>
+              <span>Proyectos</span>
+              <span>Proceso</span>
+              <span>Contacto</span>
+              <div class="preview-nav-cta">Hablemos</div>
+            </div>
+          </div>
+
+          <div class="glow-orb"></div>
+          <div class="preview-badge">[ Digital Studio ]</div>
+          <div class="preview-headline">Construimos soluciones digitales que impulsan tu negocio.</div>
+          <div class="preview-sub">Desde ecommerce hasta sistemas a medida, integraciones y automatización con IA.</div>
+          <div class="preview-ctas">
+            <div class="preview-btn-primary">Hablemos &rarr;</div>
+            <div class="preview-btn-secondary">Ver proyectos</div>
+          </div>
+          <div class="preview-scroll">
+            <span>Scroll</span>
+            <div class="preview-scroll-line"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="laptop-base"></div>
+    <div class="laptop-shadow"></div>
+  </div>
+
+  <!-- PHONE -->
+  <div class="phone">
+    <div class="phone-frame">
+      <div class="phone-viewport">
+        <div class="site-preview site-preview-phone">
+          <div class="phone-glow"></div>
+          <div class="phone-badge">[ Digital Studio ]</div>
+          <div class="phone-headline">Construimos soluciones digitales que impulsan tu negocio.</div>
+          <div class="phone-sub">Desde ecommerce hasta sistemas a medida, integraciones y automatización con IA.</div>
+          <div class="phone-btn">Hablemos &rarr;</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- URL BAR -->
+  <div class="url-bar">
+    <span>www.rokstudio.dev</span>
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
+    </svg>
+  </div>
+</div>
+
+</body>
+</html>
