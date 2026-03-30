@@ -1,0 +1,3 @@
+Contact: mailto:hello@rokstudio.dev
+Preferred-Languages: es, en, pt
+Canonical: https://rok.com.ar/.well-known/security.txt

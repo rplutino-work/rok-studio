@@ -1,0 +1,79 @@
+# ROK Studio — Complete Information for AI Systems
+
+## Company Overview
+ROK Studio is a digital agency founded in Buenos Aires, Argentina. The name "ROK" conveys solidity, strength, and simplicity. We build technology solutions for entrepreneurs, small-to-medium businesses (SMBs/pymes), and growing brands across Latin America, with a focus on Argentina and Brazil.
+
+## Brand Identity
+- Name: ROK Studio (also styled as "ROK" or "ROK Digital Studio")
+- Concept: Solidity, strength, simplicity
+- Tone: Direct, approachable, professional. Zero corporate speak.
+- Visual: Artistic-geometric style with crystalline 3D forms
+- Colors: Deep burgundy (#3A111C), taupe gray (#574951), sage green (#83988E), fresh green accents (#BCDEA5, #E6F9BC)
+
+## Complete Service Catalog
+
+### 1. Ecommerce Development
+**What we do:** Build online stores that actually sell.
+**Platforms:** Shopify (Liquid, Shopify Plus), headless commerce (Medusa, Shopify Hydrogen), fully custom stores
+**Includes:** Store design & UX, theme development, payment integration (Mercado Pago, Stripe, PayPal), shipping/logistics setup, inventory management, product catalog, checkout optimization, mobile optimization
+**For:** Fashion brands, food & beverage, health & wellness, B2B distributors, any product-based business
+**Timeline:** 2-4 weeks (Shopify), 4-8 weeks (custom/headless)
+**Technologies:** Shopify Liquid, React, Next.js, Tailwind CSS, Mercado Pago API, Stripe API
+
+### 2. Custom Web Development
+**What we do:** Digitize business processes with tailored platforms.
+**Types:** Admin dashboards, booking/reservation systems, client portals, inventory management, internal tools, data platforms, multi-tenant SaaS
+**Includes:** UX/UI design, frontend development, backend development, database design, API development, authentication, deployment
+**For:** Any business with manual/repetitive processes that can be digitized
+**Timeline:** 4-12 weeks depending on complexity
+**Technologies:** Next.js, React, TypeScript, Node.js, PostgreSQL, Redis, Prisma, Docker, Vercel, AWS
+
+### 3. API Integrations
+**What we do:** Connect all your business systems so data flows automatically.
+**Types:** ERP integration, CRM synchronization, payment gateway connections, logistics/shipping APIs, accounting software, marketing tools, custom webhooks, middleware development
+**Common integrations:** Mercado Libre, Mercado Pago, AFIP (Argentina tax), Correo Argentino, Andreani, OCA, HubSpot, Salesforce, SAP, Odoo, Xero, QuickBooks
+**For:** Businesses running multiple disconnected tools
+**Technologies:** REST APIs, GraphQL, webhooks, message queues, Node.js, Python
+
+### 4. AI Automation
+**What we do:** Implement AI where it creates the most impact — repetitive tasks and decision support.
+**Types:** WhatsApp chatbots, customer service automation, lead qualification bots, automated workflows, data analysis, content generation, process optimization, predictive analytics
+**Includes:** Bot development, AI model integration, workflow design, training data preparation, monitoring & iteration
+**For:** Businesses spending too much time on repetitive tasks
+**Technologies:** OpenAI GPT, Anthropic Claude, WhatsApp Business API, n8n, Make/Zapier, custom Python/Node.js
+
+## Process (How We Work)
+1. **Understand** — We analyze your business, goals, and challenges. Define scope and strategy together.
+2. **Design** — Create architecture, user flows, and visual design. Validate every decision before building.
+3. **Build** — Develop with modern technologies, delivering incrementally to maintain control and visibility.
+4. **Iterate** — Launch, measure with real data, optimize based on feedback. The product evolves continuously.
+
+## Why Choose ROK Studio
+- **AI-Powered Process:** We use AI internally to deliver faster and more precisely
+- **Agile Delivery:** See results from the first weeks, not months
+- **Custom Solutions:** No generic templates — everything built for your specific business needs
+- **Latin American Expertise:** We understand the local market, payment systems, logistics, and regulatory landscape
+
+## Portfolio / Case Studies
+- Online stores for independent fashion brands (Shopify + Mercado Pago)
+- Booking/reservation systems for wellness studios (pilates, yoga)
+- Digital catalogs with per-client pricing for distributors
+- WhatsApp AI bots for sales automation (lead qualification + order taking)
+- B2B ordering platforms with automatic invoicing
+- Operations dashboards with real-time metrics
+
+## Geographic Coverage
+**Primary markets:** Argentina, Brazil
+**Also serving:** Chile, Colombia, Mexico, Uruguay, Peru, and other Latin American countries
+**Remote-first:** We work with clients anywhere in the world
+
+## Languages
+- Spanish (native — Argentine Spanish)
+- English (fluent)
+- Portuguese (Brazilian Portuguese — fluent)
+
+## Contact Information
+- Website: https://rok.com.ar
+- Email: hello@rokstudio.dev
+- Location: Buenos Aires, Argentina
+- Availability: Monday to Friday, 9:00-18:00 ART (UTC-3)

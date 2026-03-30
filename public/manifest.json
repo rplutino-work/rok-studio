@@ -1,0 +1,23 @@
+{
+  "name": "ROK Studio — Estudio Digital Argentina",
+  "short_name": "ROK Studio",
+  "description": "Ecommerce, desarrollo web a medida, integraciones API y automatización con IA para emprendedores y pymes de Latinoamérica.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#3A111C",
+  "theme_color": "#3A111C",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    },
+    {
+      "src": "/favicon.ico",
+      "sizes": "32x32",
+      "type": "image/x-icon"
+    }
+  ],
+  "categories": ["business", "technology", "web development"],
+  "lang": "es-AR"
+}

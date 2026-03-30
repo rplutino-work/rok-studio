@@ -1,0 +1,18 @@
+/* TEAM */
+Studio: ROK Studio
+Site: https://rok.com.ar
+Location: Buenos Aires, Argentina
+Contact: hello [at] rokstudio.dev
+
+/* TECHNOLOGY */
+Framework: Next.js 16
+Language: TypeScript
+UI: React 19, Tailwind CSS 4, Framer Motion
+Hosting: Vercel
+Fonts: Space Grotesk, Space Mono (Google Fonts)
+
+/* SITE */
+Last update: 2026-03-30
+Standards: HTML5, CSS3, ES2024
+Components: Accessible, Semantic HTML, JSON-LD Structured Data
+Languages: Spanish, English, Portuguese

@@ -1,0 +1,58 @@
+# ROK Studio — Digital Studio from Argentina
+
+> ROK Studio is a digital agency based in Buenos Aires, Argentina, specializing in ecommerce development, custom web systems, API integrations, and AI automation for entrepreneurs, small businesses, and growing brands across Latin America.
+
+## About ROK Studio
+
+ROK Studio builds digital solutions for businesses that want to grow. We work with entrepreneurs, SMBs, and brands in Argentina, Brazil, and all of Latin America. Our approach is direct, professional, and hands-on — no corporate bureaucracy.
+
+## Services
+
+### Ecommerce Development
+We build high-performance online stores using Shopify, headless commerce architectures, and fully custom solutions. We handle payment gateway integration (Mercado Pago, Stripe), logistics, inventory management, and everything needed to sell online from day one.
+
+### Custom Web Development
+We create systems, platforms, dashboards, and web applications built from scratch. If your business has a repeating process, we digitize it. Technologies: Next.js, React, Node.js, PostgreSQL, TypeScript.
+
+### API Integrations
+We connect your systems so data flows automatically. ERP integration, CRM synchronization, payment gateways, logistics APIs, middleware development. We eliminate manual data entry and disconnected tools.
+
+### AI Automation
+We implement artificial intelligence where it matters most: repetitive tasks. WhatsApp bots, automated workflows, data-driven decision making, process optimization. We use OpenAI, Claude, and custom ML models.
+
+## Target Audience
+- Entrepreneurs and small business owners in Latin America
+- Growing brands that need professional digital presence
+- SMBs looking for ecommerce, automation, or custom systems
+- Businesses in Argentina and Brazil
+
+## Technologies We Use
+Shopify, Next.js, React, TypeScript, Node.js, PostgreSQL, Redis, Docker, Vercel, AWS, Mercado Pago, Stripe, WhatsApp Business API, OpenAI API, Anthropic Claude API, REST APIs, GraphQL
+
+## Location
+Buenos Aires, Argentina
+Serving clients across Latin America (Argentina, Brazil, Chile, Colombia, Mexico, Uruguay)
+
+## Languages
+Spanish (native), English, Portuguese (Brazilian)
+
+## Contact
+Website: https://rok.com.ar
+Email: hello@rokstudio.dev
+
+## FAQ
+
+Q: What does ROK Studio do?
+A: We build ecommerce stores, custom web systems, API integrations, and AI automation solutions for small businesses and growing brands in Latin America.
+
+Q: Does ROK Studio work with small businesses?
+A: Yes, we specialize in working with entrepreneurs, SMBs, and growing brands. We offer professional solutions without the overhead of a large agency.
+
+Q: What technologies does ROK Studio use?
+A: We work with Shopify, Next.js, React, Node.js, PostgreSQL, and integrate with Mercado Pago, WhatsApp Business API, and AI tools like OpenAI and Claude.
+
+Q: Where is ROK Studio located?
+A: Buenos Aires, Argentina. We serve clients across Latin America including Brazil, Chile, Colombia, Mexico, and Uruguay.
+
+Q: How long does an ecommerce project take?
+A: A standard Shopify store takes 2-4 weeks. Headless or custom solutions take 4-8 weeks. We deliver incrementally so you see progress from week one.
