@@ -1,4 +1,4 @@
-export type Locale = "es" | "en";
+export type Locale = "es" | "en" | "pt";
 
 export const translations = {
   es: {
@@ -297,6 +297,155 @@ export const translations = {
     footer: {
       tagline: "Digital solutions that drive businesses.",
       rights: "All rights reserved.",
+    },
+  },
+  pt: {
+    nav: {
+      services: "Serviços",
+      projects: "Projetos",
+      process: "Processo",
+      about: "Sobre nós",
+      contact: "Contato",
+    },
+    hero: {
+      headline: "Construímos soluções digitais que impulsionam seu negócio.",
+      subheadline:
+        "Ecommerce, sistemas sob medida e inteligência artificial para empreendedores e PMEs que querem crescer.",
+      cta: "Vamos conversar",
+      ctaSecondary: "Ver projetos",
+    },
+    services: {
+      label: "Serviços",
+      title: "O que fazemos",
+      subtitle:
+        "Combinamos estratégia, design e tecnologia para criar soluções que geram resultados reais.",
+      items: [
+        {
+          title: "Ecommerce",
+          description:
+            "Lojas online de alto desempenho. Design, desenvolvimento e integração com gateways de pagamento, logística e ERPs.",
+        },
+        {
+          title: "Desenvolvimento sob medida",
+          description:
+            "Sistemas, plataformas e aplicações web construídas do zero para resolver as necessidades específicas do seu negócio.",
+        },
+        {
+          title: "Integrações",
+          description:
+            "Conectamos seus sistemas. APIs, middlewares e fluxos de dados entre plataformas para que tudo funcione em sintonia.",
+        },
+        {
+          title: "Automação com IA",
+          description:
+            "Implementamos inteligência artificial para automatizar processos, melhorar a tomada de decisões e escalar operações.",
+        },
+      ],
+    },
+    projects: {
+      label: "Projetos",
+      title: "Marcas que confiam em nós",
+      subtitle:
+        "Trabalhamos com empreendedores, PMEs e marcas em crescimento que precisam de soluções digitais reais, sem enrolação.",
+      viewProject: "Ver projeto",
+      items: [
+        {
+          title: "Loja online para marca de moda",
+          description:
+            "Design, desenvolvimento e lançamento de ecommerce para uma marca de roupas independente. Integração com gateway de pagamento, logística e gestão de estoque.",
+          tags: ["Ecommerce", "Moda", "PME"],
+        },
+        {
+          title: "Sistema de agendamento para estúdio de pilates",
+          description:
+            "App de reservas, pagamentos online e gestão de clientes para um estúdio boutique. Painel de administração sob medida.",
+          tags: ["Desenvolvimento", "Saúde"],
+        },
+        {
+          title: "Catálogo digital para distribuidora",
+          description:
+            "Plataforma de pedidos com preços por cliente, listas de produtos e rastreamento de entregas para uma distribuidora local.",
+          tags: ["B2B", "Integrações"],
+        },
+        {
+          title: "Automação de vendas para PME",
+          description:
+            "Bot de WhatsApp com IA para responder consultas, receber pedidos e direcionar a vendedores. Integrado com CRM e faturamento.",
+          tags: ["IA", "Automação", "PME"],
+        },
+      ],
+    },
+    differentiator: {
+      label: "Por que a ROK?",
+      title: "Tecnologia que faz a diferença",
+      items: [
+        {
+          title: "Potencializados por IA",
+          description:
+            "Integramos inteligência artificial no nosso processo e nas soluções que construímos. Mais velocidade, mais precisão, melhores resultados.",
+        },
+        {
+          title: "Entrega ágil",
+          description:
+            "Trabalhamos com metodologias ágeis e ferramentas modernas. Iteramos rápido para que você veja resultados desde as primeiras semanas.",
+        },
+        {
+          title: "Soluções sob medida",
+          description:
+            "Não usamos templates genéricos. Cada projeto é desenhado e construído especificamente para os objetivos do seu negócio.",
+        },
+      ],
+    },
+    process: {
+      label: "Processo",
+      title: "Como trabalhamos",
+      subtitle:
+        "Um processo claro e colaborativo para transformar sua visão em realidade.",
+      steps: [
+        {
+          number: "01",
+          title: "Entender",
+          description:
+            "Analisamos seu negócio, seus objetivos e os desafios que você enfrenta. Juntos definimos o escopo e a estratégia.",
+        },
+        {
+          number: "02",
+          title: "Desenhar",
+          description:
+            "Criamos a arquitetura, os fluxos e o design visual. Validamos cada decisão antes de construir.",
+        },
+        {
+          number: "03",
+          title: "Construir",
+          description:
+            "Desenvolvemos com as melhores tecnologias, iterando com entregas parciais para manter o controle.",
+        },
+        {
+          number: "04",
+          title: "Iterar",
+          description:
+            "Lançamos, medimos e otimizamos. O produto evolui com dados reais e feedback contínuo.",
+        },
+      ],
+    },
+    contact: {
+      label: "Contato",
+      title: "Vamos começar a trabalhar juntos",
+      subtitle:
+        "Conte-nos sobre seu projeto e respondemos em menos de 24 horas.",
+      form: {
+        name: "Nome",
+        email: "Email",
+        message: "Conte-nos sobre seu projeto",
+        send: "Enviar mensagem",
+      },
+      whatsapp: "WhatsApp",
+      schedule: "Agendar chamada",
+      email: "Email",
+    },
+    footer: {
+      tagline: "Soluções digitais que impulsionam negócios.",
+      rights: "Todos os direitos reservados.",
     },
   },
 } as const;

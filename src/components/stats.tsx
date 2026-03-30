@@ -17,6 +17,12 @@ const statsData = {
     { value: 3, suffix: "x", label: "Faster with AI" },
     { value: 24, suffix: "hs", label: "Response time" },
   ],
+  pt: [
+    { value: 50, suffix: "+", label: "Projetos entregues" },
+    { value: 98, suffix: "%", label: "Clientes satisfeitos" },
+    { value: 3, suffix: "x", label: "Mais rápido com IA" },
+    { value: 24, suffix: "hs", label: "Tempo de resposta" },
+  ],
 };
 
 function AnimatedCounter({ value, suffix }: { value: number; suffix: string }) {

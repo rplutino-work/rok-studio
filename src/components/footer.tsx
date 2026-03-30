@@ -9,22 +9,10 @@ export default function Footer() {
 
   const marqueeItems =
     locale === "es"
-      ? [
-          "Ecommerce",
-          "Desarrollo a medida",
-          "Integraciones",
-          "Automatización con IA",
-          "Estrategia digital",
-          "Consultoría",
-        ]
-      : [
-          "Ecommerce",
-          "Custom development",
-          "Integrations",
-          "AI Automation",
-          "Digital strategy",
-          "Consulting",
-        ];
+      ? ["Ecommerce", "Desarrollo a medida", "Integraciones", "Automatización con IA", "Estrategia digital", "Consultoría"]
+      : locale === "en"
+      ? ["Ecommerce", "Custom development", "Integrations", "AI Automation", "Digital strategy", "Consulting"]
+      : ["Ecommerce", "Desenvolvimento sob medida", "Integrações", "Automação com IA", "Estratégia digital", "Consultoria"];
 
   return (
     <footer className="bg-dark text-text-white border-t border-dark-border relative overflow-hidden">
@@ -59,7 +47,7 @@ export default function Footer() {
           {/* Navigation */}
           <div>
             <h4 className="font-mono text-[10px] uppercase tracking-[0.3em] text-sage mb-6">
-              {locale === "es" ? "Navegación" : "Navigation"}
+              {locale === "es" ? "Navegación" : locale === "en" ? "Navigation" : "Navegação"}
             </h4>
             <div className="flex flex-col gap-3">
               {[

@@ -44,7 +44,11 @@ export default function Navbar() {
         }`}
       >
         <div className="max-w-7xl mx-auto px-6 lg:px-10 h-20 flex items-center justify-between">
-          <a href="#" className="relative z-10">
+          <a
+            href="#"
+            onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: "smooth" }); }}
+            className="relative z-10"
+          >
             <Image
               src="/logo.svg"
               alt="ROK Studio"
@@ -74,7 +78,7 @@ export default function Navbar() {
               onClick={toggleLocale}
               className="font-mono text-[11px] text-sage hover:text-text-white transition-colors duration-300 uppercase tracking-[0.2em] border border-sage/20 hover:border-accent-warm/40 px-3.5 py-1.5 rounded-full"
             >
-              {locale === "es" ? "EN" : "ES"}
+              {locale === "es" ? "EN" : locale === "en" ? "PT" : "ES"}
             </button>
 
             <a
@@ -133,7 +137,7 @@ export default function Navbar() {
                 onClick={toggleLocale}
                 className="text-sm text-sage hover:text-text-white transition-colors uppercase tracking-widest border border-sage/20 px-5 py-2.5 rounded-full"
               >
-                {locale === "es" ? "English" : "Español"}
+                {locale === "es" ? "English" : locale === "en" ? "Português" : "Español"}
               </button>
             </motion.div>
           </motion.div>
