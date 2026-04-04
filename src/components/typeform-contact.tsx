@@ -195,7 +195,10 @@ export default function TypeformContact({ onClose }: { onClose: () => void }) {
         const choice = s.choices.find((c) => c.key.toLowerCase() === e.key.toLowerCase());
         if (choice) {
           setFormData((prev) => ({ ...prev, [s.id]: choice.value }));
-          setTimeout(goNext, 350);
+          setTimeout(() => {
+            setDirection(1);
+            setCurrentStep((prev) => prev + 1);
+          }, 320);
           return;
         }
       }
@@ -265,7 +268,11 @@ export default function TypeformContact({ onClose }: { onClose: () => void }) {
 
   const handleChoiceSelect = (stepId: string, value: string) => {
     setFormData((prev) => ({ ...prev, [stepId]: value }));
-    setTimeout(goNext, 350);
+    // Advance directly without going through goNext/canAdvance (stale closure issue)
+    setTimeout(() => {
+      setDirection(1);
+      setCurrentStep((s) => s + 1);
+    }, 320);
   };
 
   const handleFieldChange = (field: string, value: string) => {
