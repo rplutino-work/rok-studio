@@ -1,9 +1,9 @@
 import Header from "@/components/Header";
-import Hero from "@/components/Hero";
+import Hero from "@/components/hero";
 import ServiceCards from "@/components/ServiceCards";
 import ServicesGrid from "@/components/ServicesGrid";
 import ProjectForm from "@/components/ProjectForm";
-import Footer from "@/components/Footer";
+import Footer from "@/components/footer";
 
 export default function Home() {
   return (
