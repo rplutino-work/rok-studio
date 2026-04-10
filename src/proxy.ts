@@ -1,17 +1,34 @@
-import { NextRequest, NextResponse } from "next/server";
+import { NextResponse } from "next/server";
+import type { NextRequest } from "next/server";
 
 export function proxy(req: NextRequest) {
-  const token = req.cookies.get("rok-admin")?.value;
-  const adminPassword = process.env.ADMIN_PASSWORD;
+  const url = req.nextUrl;
 
-  if (!token || token !== adminPassword) {
-    const loginUrl = new URL("/admin/login", req.url);
-    return NextResponse.redirect(loginUrl);
+  // Only protect the /admin route
+  if (url.pathname.startsWith("/admin")) {
+    const basicAuth = req.headers.get("authorization");
+
+    if (basicAuth) {
+      const authValue = basicAuth.split(" ")[1];
+      const [user, pwd] = atob(authValue).split(":");
+
+      // Basic hardcoded credentials
+      if (user === "admin" && pwd === "rokadmin2024") {
+        return NextResponse.next();
+      }
+    }
+
+    return new NextResponse("Auth required", {
+      status: 401,
+      headers: {
+        "WWW-Authenticate": 'Basic realm="Secure Area"',
+      },
+    });
   }
 
   return NextResponse.next();
 }
 
 export const config = {
-  matcher: ["/admin/((?!login).*)"],
+  matcher: ["/admin/:path*"],
 };
