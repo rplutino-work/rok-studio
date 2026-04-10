@@ -1,105 +1,63 @@
-"use client";
-
-import Image from "next/image";
-import { useLocale } from "@/lib/locale-context";
-import Marquee from "./marquee";
+import Link from "next/link";
+import { Instagram, Linkedin, Twitter } from "lucide-react";
 
 export default function Footer() {
-  const { t, locale } = useLocale();
-
-  const marqueeItems =
-    locale === "es"
-      ? ["Ecommerce", "Desarrollo a medida", "Integraciones", "Automatización con IA", "Estrategia digital", "Consultoría"]
-      : locale === "en"
-      ? ["Ecommerce", "Custom development", "Integrations", "AI Automation", "Digital strategy", "Consulting"]
-      : ["Ecommerce", "Desenvolvimento sob medida", "Integrações", "Automação com IA", "Estratégia digital", "Consultoria"];
-
   return (
-    <footer className="bg-dark text-text-white border-t border-dark-border relative overflow-hidden">
-      {/* Decorative ring */}
-      <div className="absolute top-[-100px] right-[-100px] w-[300px] h-[300px] rounded-full border border-sage/5" />
-
-      {/* Marquee banner */}
-      <div className="py-10 border-b border-dark-border overflow-hidden">
-        <Marquee
-          items={marqueeItems}
-          className="text-3xl md:text-5xl font-bold tracking-tight text-dark-border-light/25"
-          separator="·"
-        />
-      </div>
-
-      <div className="max-w-7xl mx-auto px-6 lg:px-10 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
-          {/* Brand */}
+    <footer className="bg-[#1a202c] pt-20 pb-10 text-white rounded-t-[3rem] mt-20">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
+          <div className="md:col-span-1">
+            <h2 className="text-3xl font-bold tracking-tight mb-6">
+              ROK YOUR <br className="hidden md:block" /> BUSINESS
+            </h2>
+          </div>
+          
           <div>
-            <Image
-              src="/logo.svg"
-              alt="ROK Studio"
-              width={64}
-              height={26}
-              className="invert opacity-80 mb-5"
-            />
-            <p className="text-sage text-sm leading-relaxed max-w-xs">
-              {t.footer.tagline}
-            </p>
+            <h4 className="font-semibold text-lg mb-6">Site Map</h4>
+            <ul className="space-y-4 text-gray-400">
+              <li><Link href="#blog" className="hover:text-white transition-colors">Blog</Link></li>
+              <li><Link href="#services" className="hover:text-white transition-colors">E-commerce</Link></li>
+              <li><Link href="#services" className="hover:text-white transition-colors">Services</Link></li>
+              <li><Link href="#project-builder" className="hover:text-white transition-colors">Project Builder</Link></li>
+              <li><Link href="#contact" className="hover:text-white transition-colors">Contact</Link></li>
+            </ul>
           </div>
 
-          {/* Navigation */}
           <div>
-            <h4 className="font-mono text-[10px] uppercase tracking-[0.3em] text-sage mb-6">
-              {locale === "es" ? "Navegación" : locale === "en" ? "Navigation" : "Navegação"}
-            </h4>
-            <div className="flex flex-col gap-3">
-              {[
-                { href: "#services", label: t.nav.services },
-                { href: "#projects", label: t.nav.projects },
-                { href: "#process", label: t.nav.process },
-                { href: "#contact", label: t.nav.contact },
-              ].map((link) => (
-                <a
-                  key={link.href}
-                  href={link.href}
-                  className="text-sm text-sage hover:text-accent-warm transition-colors duration-300"
-                >
-                  {link.label}
+            <h4 className="font-semibold text-lg mb-6">Social Links</h4>
+            <ul className="space-y-4 text-gray-400">
+              <li>
+                <a href="#" className="flex items-center gap-2 hover:text-white transition-colors">
+                  <Instagram className="w-4 h-4" /> Instagram
                 </a>
-              ))}
-            </div>
+              </li>
+              <li>
+                <a href="#" className="flex items-center gap-2 hover:text-white transition-colors">
+                  <Linkedin className="w-4 h-4" /> LinkedIn
+                </a>
+              </li>
+              <li>
+                <a href="#" className="flex items-center gap-2 hover:text-white transition-colors">
+                  <Twitter className="w-4 h-4" /> Twitter
+                </a>
+              </li>
+            </ul>
           </div>
 
-          {/* Contact */}
           <div>
-            <h4 className="font-mono text-[10px] uppercase tracking-[0.3em] text-sage mb-6">
-              {t.contact.label}
-            </h4>
-            <div className="flex flex-col gap-3">
-              <a
-                href="mailto:hello@rokstudio.dev"
-                className="text-sm text-sage hover:text-accent-warm transition-colors duration-300"
-              >
-                hello@rokstudio.dev
-              </a>
-              <a
-                href="https://wa.me/5491100000000"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-sm text-sage hover:text-accent-warm transition-colors duration-300"
-              >
-                +54 9 11 0000-0000
-              </a>
-            </div>
+            <h4 className="font-semibold text-lg mb-6">Contact</h4>
+            <a href="mailto:hello@rok.com.ar" className="text-gray-400 hover:text-white transition-colors">
+              hello@rok.com.ar
+            </a>
           </div>
         </div>
 
-        <div className="gradient-line my-12" />
-
-        <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-xs text-sage/60">
-            &copy; {new Date().getFullYear()} ROK Studio. {t.footer.rights}
-          </p>
-          <p className="text-xs text-sage/40">
-            Buenos Aires, Argentina
-          </p>
+        <div className="border-t border-gray-800 pt-8 flex flex-col md:flex-row items-center justify-between text-sm text-gray-500">
+          <p>© {new Date().getFullYear()} ROK Studio. All rights reserved.</p>
+          <div className="flex gap-4 mt-4 md:mt-0">
+            <Link href="#" className="hover:text-white transition-colors">Privacy Policy</Link>
+            <Link href="#" className="hover:text-white transition-colors">Terms of Service</Link>
+          </div>
         </div>
       </div>
     </footer>

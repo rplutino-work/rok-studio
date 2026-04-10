@@ -22,7 +22,7 @@ const SITE_NAME = "ROK Studio";
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  themeColor: "#3A111C",
+  themeColor: "#f9fbff",
 };
 
 export const metadata: Metadata = {
@@ -382,7 +382,7 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
       </head>
-      <body className="noise-overlay">
+      <body className="bg-gradient-mesh min-h-screen flex flex-col font-body text-text-main">
         {children}
         <Analytics />
       </body>

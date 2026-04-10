@@ -7,14 +7,13 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Contact {
-  id        Int      @id @default(autoincrement())
-  name      String
-  email     String
-  service   String
-  budget    String?
-  timeline  String?
-  message   String
-  status    String   @default("new")
-  createdAt DateTime @default(now())
+model Lead {
+  id          Int      @id @default(autoincrement())
+  projectType String
+  platform    String
+  budget      String
+  timeline    String
+  contactInfo String
+  status      String   @default("new")
+  createdAt   DateTime @default(now())
 }
