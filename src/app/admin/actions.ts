@@ -31,9 +31,9 @@ export async function logoutAction() {
 }
 
 export async function updateStatusAction(id: number, status: string) {
-  await prisma.contact.update({ where: { id }, data: { status } });
+  await prisma.lead.update({ where: { id }, data: { status } });
 }
 
 export async function deleteContactAction(id: number) {
-  await prisma.contact.delete({ where: { id } });
+  await prisma.lead.delete({ where: { id } });
 }
