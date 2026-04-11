@@ -1,461 +1,355 @@
-export type Locale = "es" | "en" | "pt";
+export type Locale = "es" | "en";
 
 export const translations = {
   es: {
     nav: {
       services: "Servicios",
-      projects: "Proyectos",
-      process: "Proceso",
+      work: "Proyectos",
       about: "Nosotros",
-      contact: "Contacto",
+      blog: "Blog",
+      cta: "Iniciar proyecto",
+    },
+    serviceMenu: {
+      starting: {
+        title: "Estoy empezando",
+        description: "Llevá tu negocio al mundo digital.",
+        features: ["Tu primera tienda online", "Plataforma recomendada", "Diseño y marca"],
+      },
+      growing: {
+        title: "Quiero crecer",
+        description: "Más ventas, más clientes, más presencia.",
+        features: ["Optimización de conversión", "Marketing digital", "Estrategia multicanal"],
+      },
+      custom: {
+        title: "Necesito algo a medida",
+        description: "Tu idea, nuestra tecnología.",
+        features: ["Sistemas personalizados", "Integraciones complejas", "Apps y plataformas"],
+      },
     },
     hero: {
-      headline: "Construimos soluciones digitales que impulsan tu negocio.",
-      subheadline:
-        "Ecommerce, sistemas a medida e inteligencia artificial para emprendedores y pymes que quieren crecer.",
-      cta: "Hablemos",
+      badge: "Estudio de tecnología · Buenos Aires",
+      headline: "ROK YOUR\nBUSINESS",
+      sub: "Diseñamos, construimos y escalamos soluciones digitales que transforman tu negocio — desde tu primera tienda hasta sistemas que automatizan todo.",
+      cta: "Iniciá tu proyecto",
       ctaSecondary: "Ver proyectos",
+      trustedBy: "Confían en nosotros",
     },
-    services: {
+    serviceCards: {
+      label: "Soluciones",
+      items: [
+        {
+          badge: "Para nuevos negocios",
+          title: "Arrancando",
+          description: "Tenés un producto o una idea. Te ayudamos a tener presencia digital real — sin vueltas, sin tecnicismos.",
+          cta: "Explorar",
+        },
+        {
+          badge: "Para negocios en crecimiento",
+          title: "Escalando",
+          description: "Ya vendés pero querés más. Optimizamos tu funnel, mejoramos conversiones y conectamos tus sistemas.",
+          cta: "Explorar",
+        },
+        {
+          badge: "Para necesidades complejas",
+          title: "A medida",
+          description: "Necesitás algo que no existe. Construimos plataformas, integraciones y apps desde cero.",
+          cta: "Explorar",
+        },
+      ],
+    },
+    servicesGrid: {
       label: "Lo que hacemos",
-      title: "Tecnología que trabaja para vos.",
-      subtitle:
-        "No vendemos humo. Diseñamos, construimos y conectamos las piezas digitales que tu negocio necesita para crecer de verdad.",
-      cta: "¿Tenés un proyecto en mente?",
-      ctaButton: "Hablemos",
-      items: [
+      title: "Servicios & Tecnología",
+      subtitle: "Las herramientas correctas, el equipo correcto. Construimos para que crezcas.",
+      services: [
         {
-          title: "Tu tienda, sin límites",
-          description:
-            "Armamos tiendas online que venden. Shopify, headless o 100% a medida — con pasarelas de pago, logística y stock resueltos desde el día uno.",
+          title: "Desarrollo E-commerce",
+          description: "Tiendas online que venden. Shopify, VTEX, Tiendanube o a medida — con pagos, logística y stock resueltos.",
         },
         {
-          title: "Sistemas que resuelven",
-          description:
-            "Si tu negocio tiene un proceso que se repite, lo digitalizamos. Plataformas, paneles, apps — construidos desde cero para cómo trabajás vos.",
+          title: "Shopify / VTEX / Tiendanube",
+          description: "Somos partners certificados de las mejores plataformas. Conocemos cada rincón de sus ecosistemas.",
         },
         {
-          title: "Todo conectado",
-          description:
-            "Que tu tienda hable con tu ERP, que tu CRM se actualice solo, que los datos fluyan. Conectamos tus sistemas para que dejes de hacer todo a mano.",
+          title: "Crecimiento & CRO",
+          description: "Tests A/B, analítica, optimización del funnel — estrategias basadas en datos que aumentan tus ventas.",
         },
         {
-          title: "Inteligencia que escala",
-          description:
-            "Bots que responden, workflows que se disparan solos, decisiones basadas en datos. Implementamos IA donde más impacta: en lo repetitivo.",
+          title: "Desarrollo a medida",
+          description: "Integraciones complejas, commerce headless, apps propias. Si lo podés imaginar, lo construimos.",
         },
       ],
     },
-    projects: {
-      label: "Proyectos",
-      title: "Marcas que confían en nosotros",
-      subtitle:
-        "Trabajamos con emprendedores, pymes y marcas en crecimiento que necesitan soluciones digitales reales, sin vueltas.",
-      viewProject: "Ver proyecto",
-      items: [
+    caseStudies: {
+      label: "Nuestros proyectos",
+      title: "Casos de éxito",
+      subtitle: "Resultados reales para marcas reales. Esto pasa cuando la estrategia se encuentra con la ejecución.",
+      seeAll: "Ver todos los proyectos",
+      cases: [
         {
-          title: "Tienda online para marca de indumentaria",
-          description:
-            "Diseño, desarrollo y lanzamiento de ecommerce para una marca de ropa independiente. Integración con Mercado Pago, logística y gestión de stock.",
-          tags: ["Ecommerce", "Moda", "Pyme"],
+          name: "Women Sea",
+          category: "E-commerce de moda",
+          description: "Rediseño completo en Shopify más optimización de conversión para una marca de indumentaria femenina.",
         },
         {
-          title: "Sistema de turnos para estudio de pilates",
-          description:
-            "App de reservas, pagos online y gestión de clientes para un estudio boutique. Panel de administración a medida.",
-          tags: ["Desarrollo a medida", "Salud"],
+          name: "Disminart CRO",
+          category: "Crecimiento & Analítica",
+          description: "Overhaul del funnel basado en datos que redujo el abandono de carrito un 40% en 60 días.",
         },
         {
-          title: "Catálogo digital para distribuidora",
-          description:
-            "Plataforma de pedidos con precios por cliente, listas de productos y seguimiento de entregas para una distribuidora local.",
-          tags: ["B2B", "Integraciones"],
-        },
-        {
-          title: "Automatización de ventas para pyme",
-          description:
-            "Bot de WhatsApp con IA para responder consultas, tomar pedidos y derivar a vendedores. Integrado con CRM y facturación.",
-          tags: ["IA", "Automatización", "Pyme"],
+          name: "Restaura",
+          category: "Desarrollo a medida",
+          description: "Storefront headless con sistema de inventario y lógica multi-depósito personalizada.",
         },
       ],
     },
-    differentiator: {
-      label: "¿Por qué ROK?",
-      title: "Tecnología que marca la diferencia",
-      items: [
-        {
-          title: "Potenciados por IA",
-          description:
-            "Integramos inteligencia artificial en nuestro proceso y en las soluciones que construimos. Más velocidad, más precisión, mejores resultados.",
-        },
-        {
-          title: "Entrega ágil",
-          description:
-            "Trabajamos con metodologías ágiles y herramientas modernas. Iteramos rápido para que veas resultados desde las primeras semanas.",
-        },
-        {
-          title: "Soluciones a medida",
-          description:
-            "No usamos plantillas genéricas. Cada proyecto se diseña y construye específicamente para los objetivos de tu negocio.",
-        },
-      ],
-    },
-    process: {
-      label: "Proceso",
-      title: "Cómo trabajamos",
-      subtitle:
-        "Un proceso claro y colaborativo para transformar tu visión en realidad.",
+    projectForm: {
+      label: "Empezamos",
+      title: "Armemos tu proyecto",
+      subtitle: "Te guiamos paso a paso. Tarda menos de 2 minutos.",
       steps: [
         {
-          number: "01",
-          title: "Entender",
-          description:
-            "Analizamos tu negocio, tus objetivos y los desafíos que enfrentás. Definimos juntos el alcance y la estrategia.",
+          title: "¿Qué necesitás?",
+          subtitle: "Elegí la opción más cercana a tu situación.",
+          options: [
+            { label: "Arrancar de cero", desc: "Primera presencia digital" },
+            { label: "Hacer crecer mi marca", desc: "Más ventas, más alcance" },
+            { label: "Algo a medida", desc: "Necesidades complejas o únicas" },
+          ],
         },
         {
-          number: "02",
-          title: "Diseñar",
-          description:
-            "Creamos la arquitectura, los flujos y el diseño visual. Validamos cada decisión antes de construir.",
+          title: "¿Qué plataforma usás?",
+          subtitle: "O cuál estás considerando.",
+          options: [
+            { label: "Shopify", desc: "La más popular globalmente" },
+            { label: "VTEX", desc: "Enterprise" },
+            { label: "Tiendanube", desc: "La mejor para LATAM" },
+            { label: "Otra / No sé", desc: "Te recomendamos una" },
+          ],
         },
         {
-          number: "03",
-          title: "Construir",
-          description:
-            "Desarrollamos con las mejores tecnologías, iterando con entregas parciales para mantener el control.",
+          title: "¿Cuál es tu presupuesto?",
+          subtitle: "Sin compromiso — nos ayuda a dimensionar la solución.",
+          options: [
+            { label: "Hasta USD 1.000", desc: "Alcance inicial" },
+            { label: "USD 1.000 – 5.000", desc: "Proyecto mediano" },
+            { label: "USD 5.000 – 10.000", desc: "Tienda completa" },
+            { label: "Más de USD 10.000", desc: "Enterprise / complejo" },
+          ],
         },
         {
-          number: "04",
-          title: "Iterar",
-          description:
-            "Lanzamos, medimos y optimizamos. El producto evoluciona con datos reales y feedback continuo.",
+          title: "¿Para cuándo lo necesitás?",
+          subtitle: "Planificamos desde tu fecha límite.",
+          options: [
+            { label: "Ya mismo", desc: "Arranquemos rápido" },
+            { label: "1 – 2 meses", desc: "Hay tiempo razonable" },
+            { label: "3 – 6 meses", desc: "Timeline tranquilo" },
+            { label: "Sin apuro", desc: "Estoy explorando" },
+          ],
         },
       ],
-    },
-    contact: {
-      label: "Contacto",
-      title: "Empecemos a trabajar juntos",
-      subtitle:
-        "Contanos sobre tu proyecto y te respondemos en menos de 24 horas.",
-      form: {
-        name: "Nombre",
-        email: "Email",
-        message: "Contanos sobre tu proyecto",
-        send: "Enviar mensaje",
+      contactStep: {
+        label: "Último paso",
+        title: "¿Cómo te contactamos?",
+        subtitle: "Email o teléfono — lo que prefieras.",
+        placeholder: "tu@email.com o +54 9 11 0000-0000",
+        submit: "Enviar proyecto",
+        submitting: "Enviando...",
       },
-      whatsapp: "WhatsApp",
-      schedule: "Agendar llamada",
-      email: "Email",
+      success: {
+        title: "¡Ya lo tenemos!",
+        subtitle: "Te respondemos en menos de 24 horas para hablar de tu proyecto.",
+      },
     },
     footer: {
-      tagline: "Soluciones digitales que impulsan negocios.",
+      tagline: "Tecnología que transforma negocios.",
+      siteMap: "Mapa del sitio",
+      social: "Redes sociales",
+      contact: "Contacto",
       rights: "Todos los derechos reservados.",
+      links: {
+        blog: "Blog",
+        ecommerce: "E-commerce",
+        services: "Servicios",
+        projectBuilder: "Iniciar proyecto",
+        contact: "Contacto",
+      },
     },
   },
+
   en: {
     nav: {
       services: "Services",
-      projects: "Projects",
-      process: "Process",
+      work: "Work",
       about: "About",
-      contact: "Contact",
+      blog: "Blog",
+      cta: "Start a Project",
+    },
+    serviceMenu: {
+      starting: {
+        title: "I'm just starting",
+        description: "Launch your business in the digital world.",
+        features: ["Your first online store", "Platform selection", "Design & branding"],
+      },
+      growing: {
+        title: "I want to grow",
+        description: "More sales, more customers, more reach.",
+        features: ["Conversion optimization", "Digital marketing", "Omnichannel strategy"],
+      },
+      custom: {
+        title: "I need something custom",
+        description: "Your idea, our technology.",
+        features: ["Custom systems", "Complex integrations", "Apps & platforms"],
+      },
     },
     hero: {
-      headline: "We build digital solutions that help businesses grow.",
-      subheadline:
-        "Ecommerce, custom systems and AI for entrepreneurs and small businesses ready to grow.",
-      cta: "Let's talk",
-      ctaSecondary: "View projects",
+      badge: "Technology Studio · Buenos Aires",
+      headline: "ROK YOUR\nBUSINESS",
+      sub: "We design, build and scale digital solutions that transform your business — from your first store to systems that automate everything.",
+      cta: "Start a Project",
+      ctaSecondary: "View Work",
+      trustedBy: "Trusted by growing brands",
     },
-    services: {
+    serviceCards: {
+      label: "Solutions",
+      items: [
+        {
+          badge: "For new businesses",
+          title: "Starting Out",
+          description: "You have a product or an idea. We help you get real digital presence — no headaches, no tech jargon.",
+          cta: "Explore",
+        },
+        {
+          badge: "For growing brands",
+          title: "Scaling Up",
+          description: "You already sell but want more. We optimize your funnel, improve conversions and connect your systems.",
+          cta: "Explore",
+        },
+        {
+          badge: "For complex needs",
+          title: "Going Custom",
+          description: "You need something that doesn't exist yet. We build platforms, integrations and apps from scratch.",
+          cta: "Explore",
+        },
+      ],
+    },
+    servicesGrid: {
       label: "What we do",
-      title: "Technology that works for you.",
-      subtitle:
-        "No fluff. We design, build and connect the digital pieces your business needs to actually grow.",
-      cta: "Got a project in mind?",
-      ctaButton: "Let's talk",
-      items: [
+      title: "Services & Tech",
+      subtitle: "The right tools, the right team. Built to grow with you.",
+      services: [
         {
-          title: "Your store, no limits",
-          description:
-            "We build online stores that sell. Shopify, headless or fully custom — with payments, logistics and stock sorted from day one.",
+          title: "E-commerce Dev",
+          description: "Online stores that sell. Shopify, VTEX, Tiendanube or custom — with payments, logistics and stock sorted.",
         },
         {
-          title: "Systems that solve",
-          description:
-            "If your business has a process that repeats, we digitize it. Platforms, dashboards, apps — built from scratch for the way you work.",
+          title: "Shopify / VTEX / Tiendanube",
+          description: "Certified partners on the best platforms. We know every corner of their ecosystems.",
         },
         {
-          title: "Everything connected",
-          description:
-            "Your store talks to your ERP, your CRM updates itself, data flows. We connect your systems so you stop doing everything by hand.",
+          title: "Growth & CRO",
+          description: "A/B testing, analytics, funnel optimization — data-driven strategies that lift your revenue.",
         },
         {
-          title: "Intelligence that scales",
-          description:
-            "Bots that respond, workflows that fire on their own, data-driven decisions. We implement AI where it matters most: the repetitive stuff.",
+          title: "Custom Dev",
+          description: "Complex integrations, headless commerce, bespoke apps. If you can dream it, we can build it.",
         },
       ],
     },
-    projects: {
-      label: "Projects",
-      title: "Brands that trust us",
-      subtitle:
-        "We work with entrepreneurs, small businesses and growing brands that need real digital solutions, no fluff.",
-      viewProject: "View project",
-      items: [
+    caseStudies: {
+      label: "Our work",
+      title: "Case Studies",
+      subtitle: "Real results for real brands. Here's what happens when strategy meets execution.",
+      seeAll: "See all projects",
+      cases: [
         {
-          title: "Online store for clothing brand",
-          description:
-            "Design, development and launch of an ecommerce for an independent clothing brand. Payment gateway, logistics and stock management.",
-          tags: ["Ecommerce", "Fashion", "SMB"],
+          name: "Women Sea",
+          category: "Fashion E-commerce",
+          description: "Full Shopify redesign + conversion optimization for a women's apparel brand.",
         },
         {
-          title: "Booking system for pilates studio",
-          description:
-            "Reservation app, online payments and client management for a boutique studio. Custom admin panel.",
-          tags: ["Custom Dev", "Health"],
+          name: "Disminart CRO",
+          category: "Growth & Analytics",
+          description: "Data-driven funnel overhaul that cut cart abandonment by 40% in 60 days.",
         },
         {
-          title: "Digital catalog for distributor",
-          description:
-            "Ordering platform with per-client pricing, product lists and delivery tracking for a local distributor.",
-          tags: ["B2B", "Integrations"],
-        },
-        {
-          title: "Sales automation for small business",
-          description:
-            "AI-powered WhatsApp bot to answer inquiries, take orders and route to sales reps. Integrated with CRM and invoicing.",
-          tags: ["AI", "Automation", "SMB"],
+          name: "Restaura",
+          category: "Custom Dev",
+          description: "Headless storefront with custom inventory system and multi-warehouse logic.",
         },
       ],
     },
-    differentiator: {
-      label: "Why ROK?",
-      title: "Technology that makes the difference",
-      items: [
-        {
-          title: "AI-Powered",
-          description:
-            "We integrate artificial intelligence into our process and the solutions we build. More speed, more precision, better results.",
-        },
-        {
-          title: "Agile delivery",
-          description:
-            "We work with agile methodologies and modern tools. We iterate fast so you see results from the first weeks.",
-        },
-        {
-          title: "Tailored solutions",
-          description:
-            "We don't use generic templates. Every project is designed and built specifically for your business goals.",
-        },
-      ],
-    },
-    process: {
-      label: "Process",
-      title: "How we work",
-      subtitle:
-        "A clear and collaborative process to transform your vision into reality.",
+    projectForm: {
+      label: "Get started",
+      title: "Project Builder",
+      subtitle: "Guides you step by step. Takes less than 2 minutes.",
       steps: [
         {
-          number: "01",
-          title: "Understand",
-          description:
-            "We analyze your business, your goals and the challenges you face. Together we define the scope and strategy.",
+          title: "What do you need?",
+          subtitle: "Pick the option closest to your situation.",
+          options: [
+            { label: "Starting from scratch", desc: "First digital presence" },
+            { label: "Growing my brand", desc: "More sales, bigger reach" },
+            { label: "Something custom", desc: "Complex or unique needs" },
+          ],
         },
         {
-          number: "02",
-          title: "Design",
-          description:
-            "We create the architecture, flows and visual design. Every decision is validated before building.",
+          title: "Which platform?",
+          subtitle: "Or which one you're considering.",
+          options: [
+            { label: "Shopify", desc: "Most popular globally" },
+            { label: "VTEX", desc: "Enterprise-grade" },
+            { label: "Tiendanube", desc: "Best for LATAM" },
+            { label: "Other / Not sure", desc: "We'll recommend one" },
+          ],
         },
         {
-          number: "03",
-          title: "Build",
-          description:
-            "We develop with the best technologies, iterating with partial deliveries to maintain control.",
+          title: "What's your budget?",
+          subtitle: "No commitment — helps us scope the right solution.",
+          options: [
+            { label: "Under $1,000", desc: "Starter scope" },
+            { label: "$1k – $5k", desc: "Mid-range project" },
+            { label: "$5k – $10k", desc: "Full-featured store" },
+            { label: "$10k +", desc: "Enterprise / complex" },
+          ],
         },
         {
-          number: "04",
-          title: "Iterate",
-          description:
-            "We launch, measure and optimize. The product evolves with real data and continuous feedback.",
+          title: "When do you need it?",
+          subtitle: "We'll plan backwards from your deadline.",
+          options: [
+            { label: "ASAP", desc: "Let's move fast" },
+            { label: "1 – 2 months", desc: "Some breathing room" },
+            { label: "3 – 6 months", desc: "Relaxed timeline" },
+            { label: "No rush", desc: "Just exploring" },
+          ],
         },
       ],
-    },
-    contact: {
-      label: "Contact",
-      title: "Let's start working together",
-      subtitle:
-        "Tell us about your project and we'll get back to you in less than 24 hours.",
-      form: {
-        name: "Name",
-        email: "Email",
-        message: "Tell us about your project",
-        send: "Send message",
+      contactStep: {
+        label: "Final step",
+        title: "How can we reach you?",
+        subtitle: "Email or phone — whatever works for you.",
+        placeholder: "your@email.com or +1 555 000 0000",
+        submit: "Submit Project",
+        submitting: "Sending...",
       },
-      whatsapp: "WhatsApp",
-      schedule: "Schedule a call",
-      email: "Email",
+      success: {
+        title: "You're in!",
+        subtitle: "We'll be in touch within 24 hours to discuss your project.",
+      },
     },
     footer: {
-      tagline: "Digital solutions that drive businesses.",
+      tagline: "Technology that transforms businesses.",
+      siteMap: "Site Map",
+      social: "Social Links",
+      contact: "Contact",
       rights: "All rights reserved.",
-    },
-  },
-  pt: {
-    nav: {
-      services: "Serviços",
-      projects: "Projetos",
-      process: "Processo",
-      about: "Sobre nós",
-      contact: "Contato",
-    },
-    hero: {
-      headline: "Construímos soluções digitais que impulsionam seu negócio.",
-      subheadline:
-        "Ecommerce, sistemas sob medida e inteligência artificial para empreendedores e PMEs que querem crescer.",
-      cta: "Vamos conversar",
-      ctaSecondary: "Ver projetos",
-    },
-    services: {
-      label: "O que fazemos",
-      title: "Tecnologia que trabalha pra você.",
-      subtitle:
-        "Sem enrolação. Desenhamos, construímos e conectamos as peças digitais que seu negócio precisa pra crescer de verdade.",
-      cta: "Tem um projeto em mente?",
-      ctaButton: "Vamos conversar",
-      items: [
-        {
-          title: "Sua loja, sem limites",
-          description:
-            "Criamos lojas online que vendem. Shopify, headless ou 100% sob medida — com pagamentos, logística e estoque resolvidos desde o primeiro dia.",
-        },
-        {
-          title: "Sistemas que resolvem",
-          description:
-            "Se seu negócio tem um processo que se repete, a gente digitaliza. Plataformas, painéis, apps — construídos do zero pro jeito que você trabalha.",
-        },
-        {
-          title: "Tudo conectado",
-          description:
-            "Sua loja conversa com seu ERP, seu CRM se atualiza sozinho, os dados fluem. Conectamos seus sistemas pra você parar de fazer tudo na mão.",
-        },
-        {
-          title: "Inteligência que escala",
-          description:
-            "Bots que respondem, workflows que disparam sozinhos, decisões baseadas em dados. Implementamos IA onde mais impacta: no repetitivo.",
-        },
-      ],
-    },
-    projects: {
-      label: "Projetos",
-      title: "Marcas que confiam em nós",
-      subtitle:
-        "Trabalhamos com empreendedores, PMEs e marcas em crescimento que precisam de soluções digitais reais, sem enrolação.",
-      viewProject: "Ver projeto",
-      items: [
-        {
-          title: "Loja online para marca de moda",
-          description:
-            "Design, desenvolvimento e lançamento de ecommerce para uma marca de roupas independente. Integração com gateway de pagamento, logística e gestão de estoque.",
-          tags: ["Ecommerce", "Moda", "PME"],
-        },
-        {
-          title: "Sistema de agendamento para estúdio de pilates",
-          description:
-            "App de reservas, pagamentos online e gestão de clientes para um estúdio boutique. Painel de administração sob medida.",
-          tags: ["Desenvolvimento", "Saúde"],
-        },
-        {
-          title: "Catálogo digital para distribuidora",
-          description:
-            "Plataforma de pedidos com preços por cliente, listas de produtos e rastreamento de entregas para uma distribuidora local.",
-          tags: ["B2B", "Integrações"],
-        },
-        {
-          title: "Automação de vendas para PME",
-          description:
-            "Bot de WhatsApp com IA para responder consultas, receber pedidos e direcionar a vendedores. Integrado com CRM e faturamento.",
-          tags: ["IA", "Automação", "PME"],
-        },
-      ],
-    },
-    differentiator: {
-      label: "Por que a ROK?",
-      title: "Tecnologia que faz a diferença",
-      items: [
-        {
-          title: "Potencializados por IA",
-          description:
-            "Integramos inteligência artificial no nosso processo e nas soluções que construímos. Mais velocidade, mais precisão, melhores resultados.",
-        },
-        {
-          title: "Entrega ágil",
-          description:
-            "Trabalhamos com metodologias ágeis e ferramentas modernas. Iteramos rápido para que você veja resultados desde as primeiras semanas.",
-        },
-        {
-          title: "Soluções sob medida",
-          description:
-            "Não usamos templates genéricos. Cada projeto é desenhado e construído especificamente para os objetivos do seu negócio.",
-        },
-      ],
-    },
-    process: {
-      label: "Processo",
-      title: "Como trabalhamos",
-      subtitle:
-        "Um processo claro e colaborativo para transformar sua visão em realidade.",
-      steps: [
-        {
-          number: "01",
-          title: "Entender",
-          description:
-            "Analisamos seu negócio, seus objetivos e os desafios que você enfrenta. Juntos definimos o escopo e a estratégia.",
-        },
-        {
-          number: "02",
-          title: "Desenhar",
-          description:
-            "Criamos a arquitetura, os fluxos e o design visual. Validamos cada decisão antes de construir.",
-        },
-        {
-          number: "03",
-          title: "Construir",
-          description:
-            "Desenvolvemos com as melhores tecnologias, iterando com entregas parciais para manter o controle.",
-        },
-        {
-          number: "04",
-          title: "Iterar",
-          description:
-            "Lançamos, medimos e otimizamos. O produto evolui com dados reais e feedback contínuo.",
-        },
-      ],
-    },
-    contact: {
-      label: "Contato",
-      title: "Vamos começar a trabalhar juntos",
-      subtitle:
-        "Conte-nos sobre seu projeto e respondemos em menos de 24 horas.",
-      form: {
-        name: "Nome",
-        email: "Email",
-        message: "Conte-nos sobre seu projeto",
-        send: "Enviar mensagem",
+      links: {
+        blog: "Blog",
+        ecommerce: "E-commerce",
+        services: "Services",
+        projectBuilder: "Start a Project",
+        contact: "Contact",
       },
-      whatsapp: "WhatsApp",
-      schedule: "Agendar chamada",
-      email: "Email",
-    },
-    footer: {
-      tagline: "Soluções digitais que impulsionam negócios.",
-      rights: "Todos os direitos reservados.",
     },
   },
 } as const;
-
-export function t(locale: Locale) {
-  return translations[locale];
-}

@@ -3,51 +3,13 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight, ArrowLeft, CheckCircle2, Loader2 } from "lucide-react";
+import { useLocale } from "@/lib/locale-context";
 
-const steps = [
-  {
-    id: "projectType",
-    title: "What do you need?",
-    subtitle: "Pick the option closest to your situation.",
-    options: [
-      { value: "starting", label: "Starting from scratch", desc: "First online store" },
-      { value: "growing", label: "Growing my brand", desc: "More sales, bigger reach" },
-      { value: "custom", label: "Something custom", desc: "Complex or unique needs" },
-    ],
-  },
-  {
-    id: "platform",
-    title: "Which platform?",
-    subtitle: "Or which one you're considering.",
-    options: [
-      { value: "Shopify", label: "Shopify", desc: "Most popular globally" },
-      { value: "VTEX", label: "VTEX", desc: "Enterprise-grade" },
-      { value: "Tiendanube", label: "Tiendanube", desc: "Best for LATAM" },
-      { value: "Other", label: "Other / Not sure", desc: "We'll recommend one" },
-    ],
-  },
-  {
-    id: "budget",
-    title: "What's your budget?",
-    subtitle: "No commitment — helps us scope the right solution.",
-    options: [
-      { value: "under-1k", label: "Under $1,000", desc: "Starter scope" },
-      { value: "1k-5k", label: "$1k – $5k", desc: "Mid-range project" },
-      { value: "5k-10k", label: "$5k – $10k", desc: "Full-featured store" },
-      { value: "10k+", label: "$10k +", desc: "Enterprise / complex" },
-    ],
-  },
-  {
-    id: "timeline",
-    title: "When do you need it?",
-    subtitle: "We'll work backwards from your deadline.",
-    options: [
-      { value: "asap", label: "ASAP", desc: "Let's move fast" },
-      { value: "1-2m", label: "1 – 2 months", desc: "Some breathing room" },
-      { value: "3-6m", label: "3 – 6 months", desc: "Relaxed timeline" },
-      { value: "no-rush", label: "No rush", desc: "Just exploring" },
-    ],
-  },
+const STEP_VALUES = [
+  ["starting", "growing", "custom"],
+  ["Shopify", "VTEX", "Tiendanube", "Other"],
+  ["under-1k", "1k-5k", "5k-10k", "10k+"],
+  ["asap", "1-2m", "3-6m", "no-rush"],
 ];
 
 type FormData = {
@@ -59,6 +21,7 @@ type FormData = {
 };
 
 export default function ProjectForm() {
+  const { t } = useLocale();
   const [step, setStep] = useState(0);
   const [direction, setDirection] = useState(1);
   const [formData, setFormData] = useState<FormData>({ projectType: "", platform: "", budget: "", timeline: "", contactInfo: "" });
@@ -66,9 +29,10 @@ export default function ProjectForm() {
   const [isSuccess, setIsSuccess] = useState(false);
   const [error, setError] = useState("");
 
-  const totalSteps = steps.length + 1; // +1 for contact
-  const isContactStep = step === steps.length;
-  const currentStep = steps[step];
+  const stepKeys = ["projectType", "platform", "budget", "timeline"] as const;
+  const totalSteps = t.projectForm.steps.length + 1;
+  const isContactStep = step === t.projectForm.steps.length;
+  const currentStepData = t.projectForm.steps[step];
 
   const selectAndAdvance = (field: string, value: string) => {
     setFormData((prev) => ({ ...prev, [field]: value }));
@@ -121,8 +85,8 @@ export default function ProjectForm() {
             <motion.div initial={{ scale: 0 }} animate={{ scale: 1 }} transition={{ type: "spring", delay: 0.1 }}>
               <CheckCircle2 className="w-16 h-16 text-primary mx-auto mb-5" />
             </motion.div>
-            <h3 className="text-3xl font-bold text-text-main mb-3">You&apos;re in!</h3>
-            <p className="text-text-muted text-lg">We&apos;ll be in touch within 24 hours to discuss your project.</p>
+            <h3 className="text-3xl font-bold text-text-main mb-3">{t.projectForm.success.title}</h3>
+            <p className="text-text-muted text-lg">{t.projectForm.success.subtitle}</p>
           </motion.div>
         </div>
       </section>
@@ -141,13 +105,13 @@ export default function ProjectForm() {
           className="text-center mb-10"
         >
           <span className="text-xs font-semibold uppercase tracking-widest text-primary bg-secondary px-4 py-1.5 rounded-full">
-            Get started
+            {t.projectForm.label}
           </span>
           <h2 className="text-4xl md:text-5xl font-black text-text-main mt-5 mb-3 tracking-tight" style={{ fontFamily: "'Barrio', cursive" }}>
-            Project Builder
+            {t.projectForm.title}
           </h2>
           <p className="text-text-muted text-lg">
-            Guides you through old success metrics.
+            {t.projectForm.subtitle}
           </p>
         </motion.div>
 
@@ -197,18 +161,20 @@ export default function ProjectForm() {
                       Step {step + 1} of {totalSteps}
                     </span>
                     <h3 className="text-2xl md:text-3xl font-bold text-text-main mt-2 mb-1">
-                      {currentStep.title}
+                      {currentStepData.title}
                     </h3>
-                    <p className="text-text-muted">{currentStep.subtitle}</p>
+                    <p className="text-text-muted">{currentStepData.subtitle}</p>
                   </div>
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-auto">
-                    {currentStep.options.map((opt) => {
-                      const selected = formData[currentStep.id as keyof FormData] === opt.value;
+                    {currentStepData.options.map((opt, optIdx) => {
+                      const value = STEP_VALUES[step][optIdx];
+                      const field = stepKeys[step];
+                      const selected = formData[field] === value;
                       return (
                         <button
-                          key={opt.value}
-                          onClick={() => selectAndAdvance(currentStep.id, opt.value)}
+                          key={optIdx}
+                          onClick={() => selectAndAdvance(field, value)}
                           className={`group text-left p-5 rounded-2xl border-2 transition-all duration-200 ${
                             selected
                               ? "border-primary bg-secondary text-primary"
@@ -236,19 +202,19 @@ export default function ProjectForm() {
                 >
                   <div className="mb-7">
                     <span className="text-xs font-semibold text-primary uppercase tracking-widest">
-                      Final step
+                      {t.projectForm.contactStep.label}
                     </span>
                     <h3 className="text-2xl md:text-3xl font-bold text-text-main mt-2 mb-1">
-                      How can we reach you?
+                      {t.projectForm.contactStep.title}
                     </h3>
-                    <p className="text-text-muted">Email or phone — whatever works for you.</p>
+                    <p className="text-text-muted">{t.projectForm.contactStep.subtitle}</p>
                   </div>
 
                   <div className="mt-auto space-y-4">
                     <input
                       type="text"
                       required
-                      placeholder="your@email.com or +1 555 000 0000"
+                      placeholder={t.projectForm.contactStep.placeholder}
                       value={formData.contactInfo}
                       onChange={(e) => setFormData((p) => ({ ...p, contactInfo: e.target.value }))}
                       className="w-full px-5 py-4 rounded-2xl border-2 border-border-light focus:border-primary outline-none transition-colors text-text-main text-base"
@@ -259,7 +225,10 @@ export default function ProjectForm() {
                       disabled={isSubmitting || !formData.contactInfo}
                       className="w-full flex items-center justify-center gap-2 bg-primary text-white py-4 rounded-2xl font-semibold text-base hover:bg-primary-hover disabled:opacity-50 disabled:cursor-not-allowed transition-all shadow-[0_4px_12px_rgba(16,82,202,0.3)] hover:-translate-y-0.5"
                     >
-                      {isSubmitting ? <><Loader2 size={18} className="animate-spin" /> Sending...</> : <>Submit Project <ArrowRight size={18} /></>}
+                      {isSubmitting
+                        ? <><Loader2 size={18} className="animate-spin" /> {t.projectForm.contactStep.submitting}</>
+                        : <>{t.projectForm.contactStep.submit} <ArrowRight size={18} /></>
+                      }
                     </button>
                   </div>
                 </motion.form>

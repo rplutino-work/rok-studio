@@ -3,12 +3,10 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import { useRef } from "react";
+import { useLocale } from "@/lib/locale-context";
 
-const cases = [
+const caseStyles = [
   {
-    name: "Women Sea",
-    category: "Fashion E-commerce",
-    description: "Full Shopify redesign + conversion optimization for a women's apparel brand.",
     metrics: [
       { value: "+200%", label: "ROI" },
       { value: "3.8×", label: "Conversion rate" },
@@ -19,9 +17,6 @@ const cases = [
     accentBg: "bg-rose-50 border-rose-100",
   },
   {
-    name: "Disminart CRO",
-    category: "Growth & Analytics",
-    description: "Data-driven funnel overhaul that cut cart abandonment by 40% in 60 days.",
     metrics: [
       { value: "+2,272", label: "Monthly orders" },
       { value: "-40%", label: "Cart abandonment" },
@@ -32,9 +27,6 @@ const cases = [
     accentBg: "bg-violet-50 border-violet-100",
   },
   {
-    name: "Restaura",
-    category: "Custom Dev",
-    description: "Headless storefront with custom inventory system and multi-warehouse logic.",
     metrics: [
       { value: "18 days", label: "To launch" },
       { value: "100%", label: "Uptime SLA" },
@@ -49,14 +41,12 @@ const cases = [
 function MockupScreen({ gradient, mockupBg }: { gradient: string; mockupBg: string }) {
   return (
     <div className={`w-full aspect-[4/3] rounded-2xl bg-gradient-to-br ${mockupBg} overflow-hidden relative`}>
-      {/* Simulated browser chrome */}
       <div className="bg-white/60 backdrop-blur-sm border-b border-black/5 px-3 py-2 flex items-center gap-1.5">
         <div className="w-2.5 h-2.5 rounded-full bg-red-400/70" />
         <div className="w-2.5 h-2.5 rounded-full bg-yellow-400/70" />
         <div className="w-2.5 h-2.5 rounded-full bg-green-400/70" />
         <div className="ml-2 flex-1 h-4 rounded-md bg-black/5" />
       </div>
-      {/* Page mockup */}
       <div className="p-4 space-y-2">
         <div className={`h-20 rounded-xl bg-gradient-to-r ${gradient} opacity-80`} />
         <div className="grid grid-cols-3 gap-2">
@@ -72,6 +62,7 @@ function MockupScreen({ gradient, mockupBg }: { gradient: string; mockupBg: stri
 }
 
 export default function CaseStudies() {
+  const { t } = useLocale();
   const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "end start"] });
   const y = useTransform(scrollYProgress, [0, 1], [30, -30]);
@@ -89,16 +80,16 @@ export default function CaseStudies() {
         >
           <div>
             <span className="text-xs font-semibold uppercase tracking-widest text-primary bg-secondary px-4 py-1.5 rounded-full">
-              Our work
+              {t.caseStudies.label}
             </span>
             <h2
               className="text-4xl md:text-5xl font-black text-text-main mt-5 mb-3 tracking-tight"
               style={{ fontFamily: "'Barrio', cursive" }}
             >
-              Case Studies
+              {t.caseStudies.title}
             </h2>
             <p className="text-text-muted text-lg max-w-md">
-              Real results for real brands. Here&apos;s what happens when strategy meets execution.
+              {t.caseStudies.subtitle}
             </p>
           </div>
           <motion.a
@@ -106,49 +97,49 @@ export default function CaseStudies() {
             whileHover={{ x: 4 }}
             className="inline-flex items-center gap-2 text-primary font-semibold text-sm hover:underline"
           >
-            See all projects <ArrowUpRight size={16} />
+            {t.caseStudies.seeAll} <ArrowUpRight size={16} />
           </motion.a>
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-          {cases.map((c, idx) => (
-            <motion.article
-              key={c.name}
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.6, delay: idx * 0.1, ease: [0.16, 1, 0.3, 1] }}
-              className="group bg-surface border border-border-light rounded-3xl overflow-hidden hover:shadow-card hover:-translate-y-1 transition-all duration-400"
-            >
-              {/* Mockup visual */}
-              <div className="p-4 pb-2">
-                <MockupScreen gradient={c.gradient} mockupBg={c.mockupBg} />
-              </div>
-
-              {/* Content */}
-              <div className="px-6 pb-6 pt-3">
-                <span className={`text-xs font-semibold uppercase tracking-widest ${c.accent}`}>
-                  {c.category}
-                </span>
-                <h3 className="text-xl font-bold text-text-main mt-1 mb-2 group-hover:text-primary transition-colors">
-                  {c.name}
-                </h3>
-                <p className="text-text-muted text-sm leading-relaxed mb-5">
-                  {c.description}
-                </p>
-
-                {/* Metrics */}
-                <div className={`flex gap-4 p-4 rounded-2xl border ${c.accentBg}`}>
-                  {c.metrics.map((m) => (
-                    <div key={m.label}>
-                      <div className={`text-2xl font-black ${c.accent} leading-none`}>{m.value}</div>
-                      <div className="text-xs text-text-muted mt-0.5">{m.label}</div>
-                    </div>
-                  ))}
+          {t.caseStudies.cases.map((c, idx) => {
+            const s = caseStyles[idx];
+            return (
+              <motion.article
+                key={idx}
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.6, delay: idx * 0.1, ease: [0.16, 1, 0.3, 1] }}
+                className="group bg-surface border border-border-light rounded-3xl overflow-hidden hover:shadow-card hover:-translate-y-1 transition-all duration-400"
+              >
+                <div className="p-4 pb-2">
+                  <MockupScreen gradient={s.gradient} mockupBg={s.mockupBg} />
                 </div>
-              </div>
-            </motion.article>
-          ))}
+
+                <div className="px-6 pb-6 pt-3">
+                  <span className={`text-xs font-semibold uppercase tracking-widest ${s.accent}`}>
+                    {c.category}
+                  </span>
+                  <h3 className="text-xl font-bold text-text-main mt-1 mb-2 group-hover:text-primary transition-colors">
+                    {c.name}
+                  </h3>
+                  <p className="text-text-muted text-sm leading-relaxed mb-5">
+                    {c.description}
+                  </p>
+
+                  <div className={`flex gap-4 p-4 rounded-2xl border ${s.accentBg}`}>
+                    {s.metrics.map((m) => (
+                      <div key={m.label}>
+                        <div className={`text-2xl font-black ${s.accent} leading-none`}>{m.value}</div>
+                        <div className="text-xs text-text-muted mt-0.5">{m.label}</div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </motion.article>
+            );
+          })}
         </div>
       </div>
     </section>

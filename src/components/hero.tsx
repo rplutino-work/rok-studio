@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
+import { useLocale } from "@/lib/locale-context";
 
 const EASE = [0.16, 1, 0.3, 1] as [number, number, number, number];
 const fadeUp = (delay = 0) => ({
@@ -12,33 +13,14 @@ const fadeUp = (delay = 0) => ({
 });
 
 const partners = [
-  { name: "Shopify", logo: "shopify" },
-  { name: "VTEX", logo: "vtex" },
-  { name: "Tiendanube", logo: "tiendanube" },
+  { name: "Shopify", color: "text-[#96bf48]" },
+  { name: "VTEX", color: "text-[#f71963]" },
+  { name: "Tiendanube", color: "text-[#00c2ff]" },
 ];
 
-function ShopifyLogo() {
-  return (
-    <svg viewBox="0 0 100 28" className="h-6 fill-current" aria-label="Shopify">
-      <text y="22" fontSize="20" fontWeight="700" fontFamily="sans-serif">Shopify</text>
-    </svg>
-  );
-}
-
-function PartnerBadge({ name }: { name: string }) {
-  const colors: Record<string, string> = {
-    Shopify: "text-[#96bf48]",
-    VTEX: "text-[#f71963]",
-    Tiendanube: "text-[#00c2ff]",
-  };
-  return (
-    <span className={`font-bold text-sm tracking-tight ${colors[name] ?? "text-text-muted"}`}>
-      {name}
-    </span>
-  );
-}
-
 export default function Hero() {
+  const { t } = useLocale();
+
   return (
     <section className="relative overflow-hidden pt-20 pb-28 md:pt-28 md:pb-36">
 
@@ -82,7 +64,7 @@ export default function Hero() {
           <motion.div {...fadeUp(0)}>
             <span className="inline-flex items-center gap-2 text-sm font-semibold text-primary bg-secondary px-4 py-1.5 rounded-full mb-8">
               <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
-              E-commerce Studio · Buenos Aires
+              {t.hero.badge}
             </span>
           </motion.div>
 
@@ -99,8 +81,7 @@ export default function Hero() {
 
           {/* Sub */}
           <motion.p {...fadeUp(0.16)} className="text-lg md:text-xl text-text-muted leading-relaxed max-w-xl mb-10">
-            We design, build and scale e-commerce experiences that turn visitors into loyal customers —
-            from first store to 7-figure brand.
+            {t.hero.sub}
           </motion.p>
 
           {/* CTAs */}
@@ -109,25 +90,27 @@ export default function Hero() {
               href="#project-builder"
               className="group inline-flex items-center gap-2 bg-primary text-white px-7 py-3.5 rounded-full font-semibold text-base hover:bg-primary-hover transition-all shadow-[0_4px_16px_rgba(16,82,202,0.35)] hover:shadow-[0_8px_24px_rgba(16,82,202,0.45)] hover:-translate-y-0.5"
             >
-              Start a Project
+              {t.hero.cta}
               <ArrowRight size={18} className="transition-transform group-hover:translate-x-1" />
             </Link>
             <Link
               href="#work"
               className="inline-flex items-center gap-2 text-text-main font-semibold px-7 py-3.5 rounded-full border border-border-light hover:bg-surface hover:border-primary/20 transition-all text-base"
             >
-              View Work
+              {t.hero.ctaSecondary}
             </Link>
           </motion.div>
 
           {/* Trusted by */}
           <motion.div {...fadeUp(0.3)} className="flex items-center gap-4 flex-wrap">
             <span className="text-xs font-semibold uppercase tracking-widest text-text-muted">
-              Trusted by growing brands
+              {t.hero.trustedBy}
             </span>
             <div className="flex items-center gap-5 flex-wrap">
               {partners.map((p) => (
-                <PartnerBadge key={p.name} name={p.name} />
+                <span key={p.name} className={`font-bold text-sm tracking-tight ${p.color}`}>
+                  {p.name}
+                </span>
               ))}
             </div>
           </motion.div>

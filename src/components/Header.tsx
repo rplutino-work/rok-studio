@@ -2,37 +2,16 @@
 
 import { useState, useRef, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
-import { MoveRight, Store, TrendingUp, Code, Check, ChevronDown, Menu, X } from "lucide-react";
+import { MoveRight, Store, TrendingUp, Code, Check, ChevronDown, Menu, X, Globe } from "lucide-react";
+import { useLocale } from "@/lib/locale-context";
 
-const serviceItems = [
-  {
-    icon: Store,
-    color: "text-blue-500",
-    bg: "bg-blue-50",
-    title: "I'm just starting",
-    description: "Launch your first store the right way.",
-    features: ["Online store setup", "Platform selection", "Design & branding"],
-    href: "#project-builder",
-  },
-  {
-    icon: TrendingUp,
-    color: "text-violet-500",
-    bg: "bg-violet-50",
-    title: "I want to grow",
-    description: "Scale your e-commerce revenue & reach.",
-    features: ["CRO & analytics", "Performance tuning", "Omnichannel"],
-    href: "#project-builder",
-  },
-  {
-    icon: Code,
-    color: "text-pink-500",
-    bg: "bg-pink-50",
-    title: "I need something custom",
-    description: "Complex needs, bespoke solutions.",
-    features: ["Custom integrations", "Headless commerce", "API development"],
-    href: "#project-builder",
-  },
+const ICONS = [Store, TrendingUp, Code];
+const COLORS = [
+  { color: "text-blue-500", bg: "bg-blue-50" },
+  { color: "text-violet-500", bg: "bg-violet-50" },
+  { color: "text-pink-500", bg: "bg-pink-50" },
 ];
 
 const DROP_EASE = [0.16, 1, 0.3, 1] as [number, number, number, number];
@@ -43,9 +22,21 @@ const dropVariants = {
 };
 
 export default function Header() {
+  const { t, locale, toggleLocale } = useLocale();
   const [dropOpen, setDropOpen] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const dropRef = useRef<HTMLDivElement>(null);
+
+  const serviceKeys = ["starting", "growing", "custom"] as const;
+  const serviceItems = serviceKeys.map((key, i) => ({
+    icon: ICONS[i],
+    color: COLORS[i].color,
+    bg: COLORS[i].bg,
+    title: t.serviceMenu[key].title,
+    description: t.serviceMenu[key].description,
+    features: t.serviceMenu[key].features,
+    href: "#project-builder",
+  }));
 
   useEffect(() => {
     const handler = (e: MouseEvent) => {
@@ -64,10 +55,14 @@ export default function Header() {
 
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2.5 shrink-0">
-            <span className="text-2xl">👋</span>
-            <span className="text-primary text-2xl font-bold tracking-tighter" style={{ fontFamily: "'Barrio', cursive" }}>
-              ROK.
-            </span>
+            <Image
+              src="/logo-rok-nuevo.png"
+              alt="ROK Studio"
+              width={96}
+              height={32}
+              className="h-8 w-auto object-contain"
+              priority
+            />
           </Link>
 
           {/* Desktop nav */}
@@ -78,7 +73,7 @@ export default function Header() {
                 onClick={() => setDropOpen((v) => !v)}
                 className="flex items-center gap-1.5 px-4 py-2 rounded-xl text-sm font-medium text-text-muted hover:text-text-main hover:bg-surface-hover transition-all"
               >
-                Services
+                {t.nav.services}
                 <ChevronDown size={15} className={`transition-transform duration-200 ${dropOpen ? "rotate-180" : ""}`} />
               </button>
 
@@ -127,10 +122,14 @@ export default function Header() {
               </AnimatePresence>
             </div>
 
-            {["Work", "About", "Blog"].map((label) => (
+            {[
+              { label: t.nav.work, href: "#work" },
+              { label: t.nav.about, href: "#about" },
+              { label: t.nav.blog, href: "#blog" },
+            ].map(({ label, href }) => (
               <Link
-                key={label}
-                href={`#${label.toLowerCase()}`}
+                key={href}
+                href={href}
                 className="px-4 py-2 rounded-xl text-sm font-medium text-text-muted hover:text-text-main hover:bg-surface-hover transition-all"
               >
                 {label}
@@ -138,13 +137,21 @@ export default function Header() {
             ))}
           </nav>
 
-          {/* Desktop CTA */}
-          <div className="hidden md:flex items-center gap-3">
+          {/* Desktop CTA + lang toggle */}
+          <div className="hidden md:flex items-center gap-2">
+            <button
+              onClick={toggleLocale}
+              className="flex items-center gap-1.5 px-3 py-2 rounded-xl text-sm font-medium text-text-muted hover:text-text-main hover:bg-surface-hover transition-all"
+              aria-label="Toggle language"
+            >
+              <Globe size={15} />
+              {locale === "es" ? "EN" : "ES"}
+            </button>
             <Link
               href="#project-builder"
               className="group flex items-center gap-2 bg-primary text-white px-5 py-2.5 rounded-full text-sm font-semibold hover:bg-primary-hover transition-all shadow-[0_4px_12px_rgba(16,82,202,0.3)] hover:shadow-[0_6px_20px_rgba(16,82,202,0.4)] hover:-translate-y-0.5"
             >
-              Start a Project
+              {t.nav.cta}
               <MoveRight size={15} className="transition-transform group-hover:translate-x-0.5" />
             </Link>
           </div>
@@ -184,13 +191,24 @@ export default function Header() {
                 </Link>
               ))}
               <div className="border-t border-border-light mt-2 pt-3">
-                {["Work", "About", "Blog"].map((label) => (
-                  <Link key={label} href={`#${label.toLowerCase()}`} onClick={() => setMobileOpen(false)} className="block px-4 py-2.5 text-sm text-text-muted hover:text-text-main">
+                {[
+                  { label: t.nav.work, href: "#work" },
+                  { label: t.nav.about, href: "#about" },
+                  { label: t.nav.blog, href: "#blog" },
+                ].map(({ label, href }) => (
+                  <Link key={href} href={href} onClick={() => setMobileOpen(false)} className="block px-4 py-2.5 text-sm text-text-muted hover:text-text-main">
                     {label}
                   </Link>
                 ))}
+                <button
+                  onClick={() => { toggleLocale(); setMobileOpen(false); }}
+                  className="flex items-center gap-2 px-4 py-2.5 text-sm text-text-muted hover:text-text-main w-full"
+                >
+                  <Globe size={15} />
+                  {locale === "es" ? "Switch to English" : "Cambiar a Español"}
+                </button>
                 <Link href="#project-builder" onClick={() => setMobileOpen(false)} className="mt-3 flex items-center justify-center gap-2 bg-primary text-white px-5 py-3 rounded-full text-sm font-semibold">
-                  Start a Project <MoveRight size={15} />
+                  {t.nav.cta} <MoveRight size={15} />
                 </Link>
               </div>
             </div>

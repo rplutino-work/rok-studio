@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Space_Grotesk, Space_Mono } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
+import Providers from "@/components/Providers";
 import "./globals.css";
 
 const spaceGrotesk = Space_Grotesk({
@@ -384,7 +385,7 @@ export default function RootLayout({
         <link href="https://fonts.googleapis.com/css2?family=Barrio&amp;display=swap" rel="stylesheet" />
       </head>
       <body className="bg-gradient-mesh min-h-screen flex flex-col font-body text-text-main">
-        {children}
+        <Providers>{children}</Providers>
         <Analytics />
       </body>
     </html>
