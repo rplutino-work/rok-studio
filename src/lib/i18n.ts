@@ -29,7 +29,7 @@ export const translations = {
     hero: {
       badge: "Estudio de tecnología · Buenos Aires",
       headline: "ROK YOUR\nBUSINESS",
-      sub: "Diseñamos, construimos y escalamos soluciones digitales que transforman tu negocio — desde tu primera tienda hasta sistemas que automatizan todo.",
+      sub: "La tecnología correcta puede cambiarlo todo. La diseñamos, construimos y escalamos para que tu negocio gane.",
       cta: "Iniciá tu proyecto",
       ctaSecondary: "Ver proyectos",
       trustedBy: "Confían en nosotros",
@@ -205,7 +205,7 @@ export const translations = {
     hero: {
       badge: "Technology Studio · Buenos Aires",
       headline: "ROK YOUR\nBUSINESS",
-      sub: "We design, build and scale digital solutions that transform your business — from your first store to systems that automate everything.",
+      sub: "The right technology changes everything. We design, build and scale it so your business wins.",
       cta: "Start a Project",
       ctaSecondary: "View Work",
       trustedBy: "Trusted by growing brands",
