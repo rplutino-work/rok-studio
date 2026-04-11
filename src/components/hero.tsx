@@ -22,7 +22,7 @@ export default function Hero() {
   const { t } = useLocale();
 
   return (
-    <section className="relative min-h-screen flex flex-col justify-center overflow-hidden">
+    <section className="relative flex flex-col justify-center overflow-hidden" style={{ height: "100svh", minHeight: "600px" }}>
 
       {/* ── Video background ── */}
       <div className="absolute inset-0 -z-10">
@@ -45,7 +45,7 @@ export default function Hero() {
       </div>
 
       {/* ── Content ── */}
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 pt-28 pb-24 flex flex-col justify-center min-h-screen">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 flex flex-col justify-center h-full">
         <div className="max-w-3xl">
 
           {/* Eyebrow badge */}
