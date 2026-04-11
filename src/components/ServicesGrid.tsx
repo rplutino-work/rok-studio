@@ -3,28 +3,34 @@
 import { motion } from "framer-motion";
 import { ShoppingCart, TrendingUp, Cpu, Layers } from "lucide-react";
 import { useLocale } from "@/lib/locale-context";
+import { ShopifyLogo, VTEXLogo, TiendanubeLogo } from "@/components/PartnerLogos";
 
 const icons = [ShoppingCart, Layers, TrendingUp, Cpu];
 const iconStyles = [
-  { iconBg: "bg-blue-500/10", iconColor: "text-blue-400", logos: ["shopify", "custom"], featured: false },
-  { iconBg: "bg-emerald-500/10", iconColor: "text-emerald-400", logos: ["shopify", "vtex", "tiendanube"], featured: true },
-  { iconBg: "bg-violet-500/10", iconColor: "text-violet-400", logos: [], featured: false },
-  { iconBg: "bg-orange-500/10", iconColor: "text-orange-400", logos: [], featured: false },
+  { iconBg: "bg-blue-500/10", iconColor: "text-blue-400", featured: false, showLogos: false },
+  { iconBg: "bg-emerald-500/10", iconColor: "text-emerald-400", featured: true, showLogos: true },
+  { iconBg: "bg-violet-500/10", iconColor: "text-violet-400", featured: false, showLogos: false },
+  { iconBg: "bg-orange-500/10", iconColor: "text-orange-400", featured: false, showLogos: false },
 ];
 
-function PlatformLogo({ name }: { name: string }) {
-  const styles: Record<string, string> = {
-    shopify:    "text-[#96bf48] border-[#96bf48]/15 bg-[#96bf48]/8",
-    vtex:       "text-[#f71963] border-[#f71963]/15 bg-[#f71963]/8",
-    tiendanube: "text-[#00c2ff] border-[#00c2ff]/15 bg-[#00c2ff]/8",
-  };
-  const labels: Record<string, string> = {
-    shopify: "Shopify", vtex: "VTEX", tiendanube: "Tiendanube",
-  };
+function PartnerRow() {
   return (
-    <span className={`inline-flex items-center px-2.5 py-1 rounded-lg border text-xs font-bold tracking-tight ${styles[name] ?? "text-text-muted border-border-light"}`}>
-      {labels[name] ?? name}
-    </span>
+    <div className="flex items-center gap-5 flex-wrap">
+      {/* Shopify */}
+      <div className="flex items-center gap-2 opacity-80 hover:opacity-100 transition-opacity">
+        <ShopifyLogo className="h-5 w-5" />
+        <span className="text-xs font-bold text-[#7AB55C] tracking-tight">Shopify</span>
+      </div>
+      {/* VTEX */}
+      <div className="flex items-center gap-2 opacity-80 hover:opacity-100 transition-opacity">
+        <VTEXLogo className="h-5 w-5" />
+        <span className="text-xs font-bold text-[#ED125F] tracking-tight">VTEX</span>
+      </div>
+      {/* Tiendanube */}
+      <div className="flex items-center gap-1.5 opacity-80 hover:opacity-100 transition-opacity">
+        <TiendanubeLogo className="h-3.5 w-auto" style={{ maxWidth: "90px" }} />
+      </div>
+    </div>
   );
 }
 
@@ -86,13 +92,7 @@ export default function ServicesGrid() {
                 <h3 className="text-xl font-bold text-text-main mb-2">{service.title}</h3>
                 <p className="text-text-muted text-sm leading-relaxed mb-5">{service.description}</p>
 
-                {style.logos.length > 0 && (
-                  <div className="flex items-center gap-2 flex-wrap">
-                    {style.logos.map((logo) => (
-                      <PlatformLogo key={logo} name={logo} />
-                    ))}
-                  </div>
-                )}
+                {style.showLogos && <PartnerRow />}
               </motion.div>
             );
           })}
