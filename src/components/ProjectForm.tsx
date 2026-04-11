@@ -104,10 +104,10 @@ export default function ProjectForm() {
           transition={{ duration: 0.6 }}
           className="text-center mb-10"
         >
-          <span className="text-xs font-semibold uppercase tracking-widest text-primary bg-secondary px-4 py-1.5 rounded-full">
+          <span className="text-[10px] font-bold uppercase tracking-[0.18em] text-primary bg-primary/10 border border-primary/20 px-4 py-2 rounded-full">
             {t.projectForm.label}
           </span>
-          <h2 className="text-4xl md:text-5xl font-black text-text-main mt-5 mb-3 tracking-tight" style={{ fontFamily: "'Barrio', cursive" }}>
+          <h2 className="text-4xl md:text-5xl font-black text-text-main mt-6 mb-3 tracking-tight" style={{ fontFamily: "'Barrio', cursive" }}>
             {t.projectForm.title}
           </h2>
           <p className="text-text-muted text-lg">
@@ -121,8 +121,8 @@ export default function ProjectForm() {
             <div key={idx} className="flex items-center">
               <div className={`relative w-9 h-9 rounded-full flex items-center justify-center text-sm font-bold transition-all duration-400 ${
                 idx < step ? "bg-primary text-white" :
-                idx === step ? "bg-primary text-white shadow-[0_0_0_4px_rgba(16,82,202,0.15)]" :
-                "bg-surface border-2 border-border-light text-text-muted"
+                idx === step ? "bg-primary text-white shadow-[0_0_0_4px_rgba(77,142,248,0.2)]" :
+                "bg-surface border border-border-light text-text-muted"
               }`}>
                 {idx < step ? (
                   <svg viewBox="0 0 12 10" className="w-3.5 h-3.5 fill-none stroke-current stroke-2">
@@ -175,10 +175,10 @@ export default function ProjectForm() {
                         <button
                           key={optIdx}
                           onClick={() => selectAndAdvance(field, value)}
-                          className={`group text-left p-5 rounded-2xl border-2 transition-all duration-200 ${
+                          className={`group text-left p-5 rounded-2xl border transition-all duration-200 ${
                             selected
-                              ? "border-primary bg-secondary text-primary"
-                              : "border-border-light hover:border-primary/40 hover:bg-surface-hover"
+                              ? "border-primary bg-primary/10 text-primary"
+                              : "border-border-light hover:border-primary/30 hover:bg-surface-hover"
                           }`}
                         >
                           <div className="font-semibold text-sm">{opt.label}</div>
@@ -217,7 +217,7 @@ export default function ProjectForm() {
                       placeholder={t.projectForm.contactStep.placeholder}
                       value={formData.contactInfo}
                       onChange={(e) => setFormData((p) => ({ ...p, contactInfo: e.target.value }))}
-                      className="w-full px-5 py-4 rounded-2xl border-2 border-border-light focus:border-primary outline-none transition-colors text-text-main text-base"
+                      className="w-full px-5 py-4 rounded-2xl border border-border-light bg-surface-hover focus:border-primary outline-none transition-colors text-text-main text-base placeholder:text-text-muted"
                     />
                     {error && <p className="text-red-500 text-sm">{error}</p>}
                     <button

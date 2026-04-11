@@ -57,7 +57,7 @@ export default function Header() {
   };
 
   return (
-    <header className="sticky top-0 z-50 w-full glass border-b border-border-light">
+    <header className="sticky top-0 z-50 w-full glass border-b border-white/[0.06]">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="relative flex h-[72px] items-center justify-between">
 

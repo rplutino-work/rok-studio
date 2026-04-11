@@ -6,17 +6,17 @@ import { useLocale } from "@/lib/locale-context";
 
 const icons = [ShoppingCart, Layers, TrendingUp, Cpu];
 const iconStyles = [
-  { iconBg: "bg-blue-50", iconColor: "text-blue-500", logos: ["shopify", "custom"], featured: false },
-  { iconBg: "bg-green-50", iconColor: "text-green-500", logos: ["shopify", "vtex", "tiendanube"], featured: true },
-  { iconBg: "bg-violet-50", iconColor: "text-violet-500", logos: [], featured: false },
-  { iconBg: "bg-orange-50", iconColor: "text-orange-500", logos: [], featured: false },
+  { iconBg: "bg-blue-500/10", iconColor: "text-blue-400", logos: ["shopify", "custom"], featured: false },
+  { iconBg: "bg-emerald-500/10", iconColor: "text-emerald-400", logos: ["shopify", "vtex", "tiendanube"], featured: true },
+  { iconBg: "bg-violet-500/10", iconColor: "text-violet-400", logos: [], featured: false },
+  { iconBg: "bg-orange-500/10", iconColor: "text-orange-400", logos: [], featured: false },
 ];
 
 function PlatformLogo({ name }: { name: string }) {
   const styles: Record<string, string> = {
-    shopify:    "text-[#96bf48] border-[#96bf48]/20 bg-[#96bf48]/5",
-    vtex:       "text-[#f71963] border-[#f71963]/20 bg-[#f71963]/5",
-    tiendanube: "text-[#00c2ff] border-[#00c2ff]/20 bg-[#00c2ff]/5",
+    shopify:    "text-[#96bf48] border-[#96bf48]/15 bg-[#96bf48]/8",
+    vtex:       "text-[#f71963] border-[#f71963]/15 bg-[#f71963]/8",
+    tiendanube: "text-[#00c2ff] border-[#00c2ff]/15 bg-[#00c2ff]/8",
   };
   const labels: Record<string, string> = {
     shopify: "Shopify", vtex: "VTEX", tiendanube: "Tiendanube",
@@ -42,11 +42,11 @@ export default function ServicesGrid() {
           transition={{ duration: 0.6 }}
           className="text-center mb-14"
         >
-          <span className="text-xs font-semibold uppercase tracking-widest text-primary bg-secondary px-4 py-1.5 rounded-full">
+          <span className="text-[10px] font-bold uppercase tracking-[0.18em] text-primary bg-primary/10 border border-primary/20 px-4 py-2 rounded-full">
             {t.servicesGrid.label}
           </span>
           <h2
-            className="text-4xl md:text-5xl font-black text-text-main mt-5 mb-4 tracking-tight"
+            className="text-4xl md:text-5xl font-black text-text-main mt-6 mb-4 tracking-tight"
             style={{ fontFamily: "'Barrio', cursive" }}
           >
             {t.servicesGrid.title}
@@ -56,7 +56,7 @@ export default function ServicesGrid() {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {t.servicesGrid.services.map((service, idx) => {
             const Icon = icons[idx];
             const style = iconStyles[idx];
@@ -67,16 +67,20 @@ export default function ServicesGrid() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-50px" }}
                 transition={{ duration: 0.55, delay: idx * 0.08, ease: [0.16, 1, 0.3, 1] }}
-                className={`relative bg-surface rounded-3xl p-8 border transition-all duration-300 hover:shadow-card hover:-translate-y-0.5 ${style.featured ? "border-primary/15 shadow-[0_0_0_1px_rgba(16,82,202,0.08)]" : "border-border-light"}`}
+                className={`relative bg-surface rounded-3xl p-8 border transition-all duration-300 hover:shadow-[var(--shadow-card)] hover:-translate-y-0.5 ${
+                  style.featured
+                    ? "border-primary/20 shadow-[0_0_0_1px_rgba(77,142,248,0.06)]"
+                    : "border-border-light"
+                }`}
               >
                 {style.featured && (
-                  <span className="absolute top-5 right-5 text-[10px] font-bold uppercase tracking-widest text-primary bg-secondary px-3 py-1 rounded-full">
+                  <span className="absolute top-5 right-5 text-[9px] font-bold uppercase tracking-widest text-primary bg-primary/10 border border-primary/20 px-3 py-1 rounded-full">
                     Partners
                   </span>
                 )}
 
-                <div className={`w-13 h-13 rounded-2xl ${style.iconBg} ${style.iconColor} flex items-center justify-center mb-5`}>
-                  <Icon size={26} />
+                <div className={`w-12 h-12 rounded-2xl ${style.iconBg} ${style.iconColor} flex items-center justify-center mb-5`}>
+                  <Icon size={24} />
                 </div>
 
                 <h3 className="text-xl font-bold text-text-main mb-2">{service.title}</h3>

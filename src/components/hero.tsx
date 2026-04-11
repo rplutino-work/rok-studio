@@ -1,15 +1,15 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, ArrowDown } from "lucide-react";
 import Link from "next/link";
 import { useLocale } from "@/lib/locale-context";
 
 const EASE = [0.16, 1, 0.3, 1] as [number, number, number, number];
 const fadeUp = (delay = 0) => ({
-  initial: { opacity: 0, y: 24 },
+  initial: { opacity: 0, y: 32 },
   animate: { opacity: 1, y: 0 },
-  transition: { duration: 0.7, delay, ease: EASE },
+  transition: { duration: 0.8, delay, ease: EASE },
 });
 
 const partners = [
@@ -22,56 +22,44 @@ export default function Hero() {
   const { t } = useLocale();
 
   return (
-    <section className="relative overflow-hidden pt-20 pb-28 md:pt-28 md:pb-36">
+    <section className="relative min-h-screen flex flex-col justify-center overflow-hidden">
 
-      {/* Background orbs */}
-      <div className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
-        <motion.div
-          animate={{ scale: [1, 1.08, 1], x: [0, 12, 0], y: [0, -8, 0] }}
-          transition={{ duration: 14, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute -top-32 -left-32 w-[560px] h-[560px] rounded-full bg-gradient-to-br from-accent-blue/30 to-accent-purple/20 blur-[90px]"
-        />
-        <motion.div
-          animate={{ scale: [1, 1.1, 1], x: [0, -16, 0], y: [0, 10, 0] }}
-          transition={{ duration: 18, repeat: Infinity, ease: "easeInOut", delay: 2 }}
-          className="absolute -top-20 right-0 w-[420px] h-[420px] rounded-full bg-gradient-to-br from-accent-pink/25 to-accent-purple/20 blur-[80px]"
-        />
-        <motion.div
-          animate={{ scale: [1, 1.06, 1] }}
-          transition={{ duration: 10, repeat: Infinity, ease: "easeInOut", delay: 4 }}
-          className="absolute bottom-0 left-1/3 w-[320px] h-[320px] rounded-full bg-gradient-to-br from-accent-blue/15 to-primary/10 blur-[70px]"
-        />
+      {/* ── Video background ── */}
+      <div className="absolute inset-0 -z-10">
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="auto"
+          className="absolute inset-0 w-full h-full object-cover"
+        >
+          <source src="/hero-video.mp4" type="video/mp4" />
+        </video>
+
+        {/* Overlay gradient — darkens video so text reads cleanly */}
+        <div className="hero-video-overlay absolute inset-0" />
+
+        {/* Extra side vignette for focus */}
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_30%,rgba(9,9,14,0.5)_100%)]" />
       </div>
 
-      {/* 3D floating blobs */}
-      <div className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
-        <motion.div
-          className="absolute top-24 right-[8%] w-24 h-24 blob bg-gradient-to-br from-accent-blue to-accent-purple opacity-70 animate-float"
-          style={{ filter: "blur(0px)" }}
-        />
-        <motion.div
-          className="absolute top-48 right-[18%] w-14 h-14 blob bg-gradient-to-br from-accent-pink to-accent-purple opacity-60 animate-float-delayed"
-        />
-        <motion.div
-          className="absolute bottom-24 right-[6%] w-10 h-10 blob bg-gradient-to-br from-accent-orange to-accent-pink opacity-50 animate-float-slow"
-        />
-      </div>
-
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      {/* ── Content ── */}
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 pt-28 pb-24 flex flex-col justify-center min-h-screen">
         <div className="max-w-3xl">
 
-          {/* Eyebrow */}
+          {/* Eyebrow badge */}
           <motion.div {...fadeUp(0)}>
-            <span className="inline-flex items-center gap-2 text-sm font-semibold text-primary bg-secondary px-4 py-1.5 rounded-full mb-8">
-              <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
+            <span className="inline-flex items-center gap-2 text-xs font-semibold tracking-widest uppercase text-primary/90 border border-primary/25 bg-primary/8 px-4 py-2 rounded-full mb-10 backdrop-blur-sm">
+              <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
               {t.hero.badge}
             </span>
           </motion.div>
 
           {/* Headline */}
           <motion.h1
-            {...fadeUp(0.08)}
-            className="text-6xl sm:text-7xl md:text-[88px] font-black tracking-tight text-text-main leading-[0.95] mb-6"
+            {...fadeUp(0.1)}
+            className="text-[clamp(4rem,10vw,9rem)] font-black tracking-tight leading-[0.9] mb-8 text-white"
             style={{ fontFamily: "'Barrio', cursive" }}
           >
             ROK YOUR
@@ -79,36 +67,40 @@ export default function Hero() {
             <span className="text-gradient">BUSINESS</span>
           </motion.h1>
 
-          {/* Sub */}
-          <motion.p {...fadeUp(0.16)} className="text-lg md:text-xl text-text-muted leading-relaxed max-w-xl mb-10">
+          {/* Subtext */}
+          <motion.p
+            {...fadeUp(0.2)}
+            className="text-lg md:text-xl text-white/60 leading-relaxed max-w-lg mb-12 font-light"
+          >
             {t.hero.sub}
           </motion.p>
 
           {/* CTAs */}
-          <motion.div {...fadeUp(0.22)} className="flex flex-col sm:flex-row items-start sm:items-center gap-3 mb-14">
+          <motion.div {...fadeUp(0.28)} className="flex flex-col sm:flex-row items-start sm:items-center gap-3 mb-16">
             <Link
               href="#project-builder"
-              className="group inline-flex items-center gap-2 bg-primary text-white px-7 py-3.5 rounded-full font-semibold text-base hover:bg-primary-hover transition-all shadow-[0_4px_16px_rgba(16,82,202,0.35)] hover:shadow-[0_8px_24px_rgba(16,82,202,0.45)] hover:-translate-y-0.5"
+              className="group inline-flex items-center gap-2 bg-primary text-white px-8 py-4 rounded-full font-semibold text-sm hover:bg-primary-hover transition-all shadow-[0_4px_24px_rgba(77,142,248,0.4)] hover:shadow-[0_8px_32px_rgba(77,142,248,0.5)] hover:-translate-y-0.5"
             >
               {t.hero.cta}
-              <ArrowRight size={18} className="transition-transform group-hover:translate-x-1" />
+              <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
             </Link>
             <Link
               href="#work"
-              className="inline-flex items-center gap-2 text-text-main font-semibold px-7 py-3.5 rounded-full border border-border-light hover:bg-surface hover:border-primary/20 transition-all text-base"
+              className="inline-flex items-center gap-2 text-white/70 font-semibold px-8 py-4 rounded-full border border-white/15 hover:bg-white/8 hover:text-white hover:border-white/25 transition-all text-sm backdrop-blur-sm"
             >
               {t.hero.ctaSecondary}
             </Link>
           </motion.div>
 
           {/* Trusted by */}
-          <motion.div {...fadeUp(0.3)} className="flex items-center gap-4 flex-wrap">
-            <span className="text-xs font-semibold uppercase tracking-widest text-text-muted">
+          <motion.div {...fadeUp(0.36)} className="flex items-center gap-5 flex-wrap">
+            <span className="text-[10px] font-semibold uppercase tracking-[0.15em] text-white/35">
               {t.hero.trustedBy}
             </span>
+            <div className="w-px h-4 bg-white/15" />
             <div className="flex items-center gap-5 flex-wrap">
               {partners.map((p) => (
-                <span key={p.name} className={`font-bold text-sm tracking-tight ${p.color}`}>
+                <span key={p.name} className={`font-bold text-xs tracking-tight ${p.color} opacity-70`}>
                   {p.name}
                 </span>
               ))}
@@ -116,6 +108,23 @@ export default function Hero() {
           </motion.div>
         </div>
       </div>
+
+      {/* ── Scroll indicator ── */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1.2, duration: 0.8 }}
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
+      >
+        <span className="text-[10px] uppercase tracking-widest text-white/30 font-medium">Scroll</span>
+        <motion.div
+          animate={{ y: [0, 6, 0] }}
+          transition={{ duration: 1.6, repeat: Infinity, ease: "easeInOut" }}
+        >
+          <ArrowDown size={14} className="text-white/30" />
+        </motion.div>
+      </motion.div>
+
     </section>
   );
 }
