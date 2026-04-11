@@ -4,54 +4,132 @@ import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 
+const EASE = [0.16, 1, 0.3, 1] as [number, number, number, number];
+const fadeUp = (delay = 0) => ({
+  initial: { opacity: 0, y: 24 },
+  animate: { opacity: 1, y: 0 },
+  transition: { duration: 0.7, delay, ease: EASE },
+});
+
+const partners = [
+  { name: "Shopify", logo: "shopify" },
+  { name: "VTEX", logo: "vtex" },
+  { name: "Tiendanube", logo: "tiendanube" },
+];
+
+function ShopifyLogo() {
+  return (
+    <svg viewBox="0 0 100 28" className="h-6 fill-current" aria-label="Shopify">
+      <text y="22" fontSize="20" fontWeight="700" fontFamily="sans-serif">Shopify</text>
+    </svg>
+  );
+}
+
+function PartnerBadge({ name }: { name: string }) {
+  const colors: Record<string, string> = {
+    Shopify: "text-[#96bf48]",
+    VTEX: "text-[#f71963]",
+    Tiendanube: "text-[#00c2ff]",
+  };
+  return (
+    <span className={`font-bold text-sm tracking-tight ${colors[name] ?? "text-text-muted"}`}>
+      {name}
+    </span>
+  );
+}
+
 export default function Hero() {
   return (
-    <section className="relative overflow-hidden pt-24 pb-32">
-      {/* Decorative Blur Orbs */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-to-r from-accent-blue/30 to-accent-pink/30 rounded-full blur-[100px] -z-10 mix-blend-multiply opacity-70 animate-pulse transition-all duration-1000" />
-      <div className="absolute top-10 right-10 w-[300px] h-[300px] bg-primary/20 rounded-full blur-[80px] -z-10 mix-blend-multiply" />
+    <section className="relative overflow-hidden pt-20 pb-28 md:pt-28 md:pb-36">
 
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="max-w-4xl mx-auto text-center">
+      {/* Background orbs */}
+      <div className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
+        <motion.div
+          animate={{ scale: [1, 1.08, 1], x: [0, 12, 0], y: [0, -8, 0] }}
+          transition={{ duration: 14, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute -top-32 -left-32 w-[560px] h-[560px] rounded-full bg-gradient-to-br from-accent-blue/30 to-accent-purple/20 blur-[90px]"
+        />
+        <motion.div
+          animate={{ scale: [1, 1.1, 1], x: [0, -16, 0], y: [0, 10, 0] }}
+          transition={{ duration: 18, repeat: Infinity, ease: "easeInOut", delay: 2 }}
+          className="absolute -top-20 right-0 w-[420px] h-[420px] rounded-full bg-gradient-to-br from-accent-pink/25 to-accent-purple/20 blur-[80px]"
+        />
+        <motion.div
+          animate={{ scale: [1, 1.06, 1] }}
+          transition={{ duration: 10, repeat: Infinity, ease: "easeInOut", delay: 4 }}
+          className="absolute bottom-0 left-1/3 w-[320px] h-[320px] rounded-full bg-gradient-to-br from-accent-blue/15 to-primary/10 blur-[70px]"
+        />
+      </div>
+
+      {/* 3D floating blobs */}
+      <div className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
+        <motion.div
+          className="absolute top-24 right-[8%] w-24 h-24 blob bg-gradient-to-br from-accent-blue to-accent-purple opacity-70 animate-float"
+          style={{ filter: "blur(0px)" }}
+        />
+        <motion.div
+          className="absolute top-48 right-[18%] w-14 h-14 blob bg-gradient-to-br from-accent-pink to-accent-purple opacity-60 animate-float-delayed"
+        />
+        <motion.div
+          className="absolute bottom-24 right-[6%] w-10 h-10 blob bg-gradient-to-br from-accent-orange to-accent-pink opacity-50 animate-float-slow"
+        />
+      </div>
+
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-3xl">
+
+          {/* Eyebrow */}
+          <motion.div {...fadeUp(0)}>
+            <span className="inline-flex items-center gap-2 text-sm font-semibold text-primary bg-secondary px-4 py-1.5 rounded-full mb-8">
+              <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
+              E-commerce Studio · Buenos Aires
+            </span>
+          </motion.div>
+
+          {/* Headline */}
           <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-            className="text-6xl md:text-8xl font-bold tracking-tight text-text-main mb-6"
+            {...fadeUp(0.08)}
+            className="text-6xl sm:text-7xl md:text-[88px] font-black tracking-tight text-text-main leading-[0.95] mb-6"
             style={{ fontFamily: "'Barrio', cursive" }}
           >
-            ROK YOUR <br />
+            ROK YOUR
+            <br />
             <span className="text-gradient">BUSINESS</span>
           </motion.h1>
 
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-            className="text-lg md:text-xl text-text-muted mb-10 max-w-2xl mx-auto"
-          >
-            We design, build and scale e-commerce experiences that turn visitors into loyal customers. Friendly, premium, and built for growth.
+          {/* Sub */}
+          <motion.p {...fadeUp(0.16)} className="text-lg md:text-xl text-text-muted leading-relaxed max-w-xl mb-10">
+            We design, build and scale e-commerce experiences that turn visitors into loyal customers —
+            from first store to 7-figure brand.
           </motion.p>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-            className="flex flex-col sm:flex-row items-center justify-center gap-4"
-          >
+          {/* CTAs */}
+          <motion.div {...fadeUp(0.22)} className="flex flex-col sm:flex-row items-start sm:items-center gap-3 mb-14">
             <Link
               href="#project-builder"
-              className="w-full sm:w-auto bg-primary text-white px-8 py-4 rounded-full font-medium hover:bg-primary-hover hover:scale-105 transition-all flex items-center justify-center gap-2 shadow-lg shadow-primary/25"
+              className="group inline-flex items-center gap-2 bg-primary text-white px-7 py-3.5 rounded-full font-semibold text-base hover:bg-primary-hover transition-all shadow-[0_4px_16px_rgba(16,82,202,0.35)] hover:shadow-[0_8px_24px_rgba(16,82,202,0.45)] hover:-translate-y-0.5"
             >
               Start a Project
-              <ArrowRight className="w-5 h-5" />
+              <ArrowRight size={18} className="transition-transform group-hover:translate-x-1" />
             </Link>
             <Link
               href="#work"
-              className="w-full sm:w-auto bg-white text-text-main border border-border-light px-8 py-4 rounded-full font-medium hover:bg-surface-hover hover:scale-105 transition-all shadow-sm"
+              className="inline-flex items-center gap-2 text-text-main font-semibold px-7 py-3.5 rounded-full border border-border-light hover:bg-surface hover:border-primary/20 transition-all text-base"
             >
               View Work
             </Link>
+          </motion.div>
+
+          {/* Trusted by */}
+          <motion.div {...fadeUp(0.3)} className="flex items-center gap-4 flex-wrap">
+            <span className="text-xs font-semibold uppercase tracking-widest text-text-muted">
+              Trusted by growing brands
+            </span>
+            <div className="flex items-center gap-5 flex-wrap">
+              {partners.map((p) => (
+                <PartnerBadge key={p.name} name={p.name} />
+              ))}
+            </div>
           </motion.div>
         </div>
       </div>
