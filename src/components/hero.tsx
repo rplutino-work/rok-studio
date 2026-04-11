@@ -18,6 +18,7 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
             className="text-6xl md:text-8xl font-bold tracking-tight text-text-main mb-6"
+            style={{ fontFamily: "'Barrio', cursive" }}
           >
             ROK YOUR <br />
             <span className="text-gradient">BUSINESS</span>

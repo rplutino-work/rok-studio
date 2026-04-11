@@ -31,7 +31,7 @@ export default function ServicesGrid() {
     <section id="services" className="py-20 relative">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-text-main mb-6">Services & Tech</h2>
+          <h2 className="text-4xl md:text-5xl font-bold text-text-main mb-6" style={{ fontFamily: "'Barrio', cursive" }}>Services & Tech</h2>
           <p className="text-text-muted text-lg max-w-2xl mx-auto">Custom technology solutions built to scale your business.</p>
         </div>
 

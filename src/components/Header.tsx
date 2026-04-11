@@ -6,8 +6,12 @@ export default function Header() {
     <header className="sticky top-0 z-50 w-full glass border-b border-border-light">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex h-20 items-center justify-between">
-          <Link href="/" className="flex items-center gap-2">
-            <span className="text-primary text-2xl font-bold tracking-tighter">
+          <Link href="/" className="flex items-center gap-3">
+            <img src="/logo-rok-nuevo.png" alt="ROK Logo" className="w-10 h-10 object-contain" />
+            <span 
+              className="text-primary text-3xl font-bold tracking-tighter" 
+              style={{ fontFamily: "'Barrio', cursive" }}
+            >
               ROK.
             </span>
           </Link>

@@ -381,6 +381,7 @@ export default function RootLayout({
         <JsonLd />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link href="https://fonts.googleapis.com/css2?family=Barrio&amp;display=swap" rel="stylesheet" />
       </head>
       <body className="bg-gradient-mesh min-h-screen flex flex-col font-body text-text-main">
         {children}

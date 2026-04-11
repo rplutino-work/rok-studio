@@ -7,7 +7,7 @@ export default function Footer() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
           <div className="md:col-span-1">
-            <h2 className="text-3xl font-bold tracking-tight mb-6">
+            <h2 className="text-3xl font-bold tracking-tight mb-6" style={{ fontFamily: "'Barrio', cursive" }}>
               ROK YOUR <br className="hidden md:block" /> BUSINESS
             </h2>
           </div>
